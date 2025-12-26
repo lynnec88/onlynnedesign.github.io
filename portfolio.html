@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Onlynne Design</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Brawler&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Roboto+Mono&display=swap" rel="stylesheet">
+  <!-- Google Fonts：Montserrat + Nunito Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Nunito+Sans:wght=400;600&display=swap" rel="stylesheet" />
+
+
+  <style>
+    body {
+      font-family: 'Playfair Display', serif;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    .animate-marquee {
+      display: inline-block;
+      animation: marquee 30s linear infinite;
+    }
+  </style>
+
+</head>
+
+<body class="bg-white text-black">
+
+  <!-- 顶部容器 -->
+  <div class="relative">
+
+    <!-- Header（固定在黑线条上方，不覆盖 Hero） -->
+    <header class="border-b-[2px] border-black bg-white">
+      <div class="mx-auto max-w-7xl flex items-center justify-between gap-6 px-6 md:px-10 py-3">
+        <!-- 左：Logo -->
+        <a href="index.html" class="shrink-0 inline-flex">
+          <img src="images/logo.svg" alt="Onlynne Design Logo"
+               class="w-[90px] md:w-[110px] h-auto transition duration-300 ease-in-out hover:scale-105 hover:rotate-1">
+        </a>
+
+        <!-- 中：导航 -->
+        <nav class="hidden md:flex items-center gap-8 text-[0.9rem] font-mono">
+          <a href="about.html" class="transition hover:text-gray-600">ABOUT</a>
+          <a href="portfolio .html" class="transition hover:text-gray-600">PORTFOLIO</a>
+          <a href="services.html" class="transition hover:text-gray-600">SERVICES</a>
+          <a href="https://www.etsy.com/" class="transition hover:text-gray-600" target="_blank" rel="noopener">STORE</a>
+        </nav>
+
+        <!-- 右：按钮 -->
+        <a href="contact.html"
+           class="px-5 md:px-6 py-1.5 text-sm font-mono border-[2px] border-black rounded-full bg-[#e8febf] hover:bg-[#cbbfed] transition-all">
+          LET'S TALK
+        </a>
+      </div>
+    </header>
+
+    <!-- Hero 大图（紧随其后，确保黑线条可见且不被遮挡） -->
+    <img src="images/portfolio-hero.png" alt="Portfolio Hero" class="w-full h-auto block select-none">
+
+  </div>
+
+<!-- Straight Scrolling Bar -->
+<div class="bg-[#e8febf] border-y-[2px] border-black w-full overflow-hidden mb-10">
+  <div class="scroll-line text-sm sm:text-base font-mono tracking-wide text-black flex whitespace-nowrap" style="font-family: 'Nunito Sans', sans-serif;">
+    <span class="mx-8">ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶</span>
+    <span class="mx-8">ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶</span>
+    <span class="mx-8">ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶</span>
+  </div>
+</div>
+
+<style>
+@keyframes scroll-horizontal {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* 一半长度，另一半是复制的内容 */
+}
+.scroll-line {
+  display: flex;
+  width: max-content;
+  animation: scroll-horizontal 20s linear infinite;
+  will-change: transform;
+}
+@media (hover:hover) and (pointer:fine){
+  .scroll-line:hover {
+    animation-play-state: paused; /* 鼠标悬停时暂停 */
+  }
+}
+</style>
+
+<!-- ======= Portfolio Main (stacked folders + accordion) ======= -->
+<style>
+  :root {
+    /* 文件夹“唇边”高度（可统一调节） */
+    --tab-lip: 26px;
+
+    /* 额外压盖像素，吃掉可能的发丝缝（可调到 3px） */
+    --bleed-fix: 2px;
+  }
+
+  /* ========== 折叠区上沿的“贴片修缝”系统 ========== */
+  .lip-fix {
+    /* 向上抠多一点，再等量补回，确保覆盖到上方 PNG 边缘 */
+    margin-top: calc(-1 * var(--tab-lip) - var(--bleed-fix));
+    padding-top: calc(var(--tab-lip) + var(--bleed-fix));
+    position: relative;
+    border-bottom-left-radius: 28px;
+    border-bottom-right-radius: 28px;
+  }
+  .lip-strip {
+    content: "";
+    position: absolute;
+    left: 0; right: 0;
+    top: 0;
+    /* 高 1px 的冗余，进一步吃掉锯齿 */
+    height: calc(var(--tab-lip) + 1px);
+    pointer-events: none;
+    /* 防止 GPU 亚像素导致的细缝 */
+    transform: translateZ(0);
+  }
+  .lip-over {
+    position: absolute;
+    left: 0; right: 0;
+    bottom: -2px;                 /* 再向下压 2px，兜底用 */
+    height: var(--tab-lip);
+    pointer-events: none;
+    z-index: 50;
+    transform: translateZ(0);
+    border-bottom-left-radius: 28px;
+    border-bottom-right-radius: 28px;
+  }
+
+  .amend-y {
+      transform: translateY(-50px);
+  }
+
+  /* 让按钮内部的 <span> 不可点，避免阻挡按钮点击 */
+  [data-accordion-toggle] .pointer-events-none {
+    pointer-events: none;
+  }
+
+  /* 手风琴展开动画更丝滑 */
+  .accordion-panel {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 500ms ease-in-out;
+    will-change: max-height;
+  }
+</style>
+
+<div class="relative z-0 mx-auto w-full max-w-[1280px] px-6 lg:px-10" data-accordion-root>
+
+  <!-- ========== SECTION: FEATURED PROJECTS ========== -->
+  <section id="featured" class="relative isolate z-30 w-full my-10 overflow-visible rounded-[28px]" data-accordion>
+    <button type="button" class="group relative w-full text-left focus:outline-none"
+      data-accordion-toggle aria-expanded="false" aria-controls="panel-featured">
+      <img src="images/portfolio/文件夹_粉红.png" alt="" class="w-full h-auto block select-none pointer-events-none" />
+      <div class="pointer-events-none absolute inset-0 z-10 px-[clamp(20px,5vw,56px)] py-[clamp(26px,6vw,64px)]
+                  flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+        <div class="flex-1 max-w-[600px] lg:mt-[4%] font-sans flex flex-col self-start">
+          <h2 class="mb-6 text-[clamp(40px,6.2vw,88px)] leading-[1] font-black tracking-tight">Featured <br>projects</h2>
+          <p class="mb-8 text-[clamp(16px,1.4vw,22px)] leading-[1.75] max-w-[56ch]">
+            A showcase of my most impactful design work. Each project highlights problem-solving
+            through creativity, accessibility, and storytelling, reflecting both craft and purpose.
+          </p>
+          <span class="mt-auto inline-flex items-center justify-center gap-3 w-[400px] px-6 py-3 border-2 border-black bg-[#e8febf]
+                       text-black font-mono text-[clamp(14px,1.2vw,18px)] transition group-hover:bg-black group-hover:text-white select-none">
+            LEARN MORE
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+              <path d="M6 18L18 6M9 6h9v9" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </div>
+        <div class="flex-shrink-0 w-auto h-auto lg:h-[78%] self-center">
+          <img src="images/portfolio/文件夹_cover-featured projects.png" alt="Featured Projects Cover"
+               class="h-full w-auto object-contain block select-none pointer-events-none" loading="lazy" />
+        </div>
+      </div>
+    </button>
+
+    <div id="panel-featured" class="accordion-panel amend-y" role="region" aria-labelledby="featured">
+      <!-- 这里保持纯色，不再使用半透明 -->
+      <div class="lip-fix bg-[#ead3c9] px-[clamp(20px,5vw,56px)] pb-10">
+        <!-- 与上方 PNG 完全同色的“修补条” -->
+        <i class="lip-strip" style="background:#ead3c9"></i>
+
+        <div class="border-t-2 border-dashed border-black/50 my-8"></div>
+
+        <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 font-sans">
+          <!-- Card A -->
+          <a href="https://dribbble.com/shots/26901891-Chili-sauce-jam-package-design" class="group block">
+            <div class="border-2 border-black overflow-hidden">
+              <img src="images/portfolio/辣椒酱.png" alt="Card A Thumbnail"
+                   class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105 group-hover:opacity-90">
+            </div>
+            <div class="mt-3">
+              <h3 class="font-[Montserrat] font-semibold tracking-wide text-lg group-hover:text-gray-700 transition-colors">Body Concept Pilates</h3>
+              <p class="font-[Nunito_Sans] text-sm text-gray-500 uppercase tracking-wider mt-1">branding | sports</p>
+            </div>
+          </a>
+
+          <!-- Card B -->
+          <a href="https://dribbble.com/shots/26901801-brand-design-matcha-coffee" class="group block">
+            <div class="border-2 border-black overflow-hidden">
+              <img src="images/portfolio/matcha.png" alt="Card B Thumbnail"
+                   class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105 group-hover:opacity-90">
+            </div>
+            <div class="mt-3">
+              <h3 class="font-[Montserrat] font-semibold tracking-wide text-lg group-hover:text-gray-700 transition-colors">snow51</h3>
+              <p class="font-[Nunito_Sans] text-sm text-gray-500 uppercase tracking-wider mt-1">branding | sports</p>
+            </div>
+          </a>
+
+          <!-- Card C -->
+          <a href="https://dribbble.com/shots/26874164-Brand-Design-project-Bread-head" class="group block">
+            <div class="border-2 border-black overflow-hidden">
+              <img src="images/portfolio/breadhead.png" alt="Card C Thumbnail"
+                   class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105 group-hover:opacity-90">
+            </div>
+            <div class="mt-3">
+              <h3 class="font-[Montserrat] font-semibold tracking-wide text-lg group-hover:text-gray-700 transition-colors">iconix</h3>
+              <p class="font-[Nunito_Sans] text-sm text-gray-500 uppercase tracking-wider mt-1">branding | fashion</p>
+            </div>
+          </a>
+
+          <!-- Card D -->
+          <a href="https://dribbble.com/shots/26873685-MAEK-COFFEE-BRAND-DESIGN" class="group block">
+            <div class="border-2 border-black overflow-hidden">
+              <img src="images/portfolio/貘咖啡.png" alt="Card E Thumbnail"
+                   class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105 group-hover:opacity-90">
+            </div>
+            <div class="mt-3">
+              <h3 class="font-[Montserrat] font-semibold tracking-wide text-lg group-hover:text-gray-700 transition-colors">YISYLIFE</h3>
+              <p class="font-[Nunito_Sans] text-sm text-gray-500 uppercase tracking-wider mt-1">branding+packaging | restaurant</p>
+            </div>
+          </a>
+
+          <!-- Card E -->
+          <a href="https://dribbble.com/shots/26595679-KeMi-restaurant-brand-design" class="group block">
+            <div class="border-2 border-black overflow-hidden">
+              <img src="images/portfolio/kemi.png" alt="Card E Thumbnail"
+                   class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105 group-hover:opacity-90">
+            </div>
+            <div class="mt-3">
+              <h3 class="font-[Montserrat] font-semibold tracking-wide text-lg group-hover:text-gray-700 transition-colors">Kemi</h3>
+              <p class="font-[Nunito_Sans] text-sm text-gray-500 uppercase tracking-wider mt-1">branding+packaging | restaurant</p>
+            </div>
+          </a>
+
+          <!-- Card F -->
+          <a href="https://https://dribbble.com/shots/26595663-DHAWA-HOTEL-BRAND-DESIGN" class="group block">
+            <div class="border-2 border-black overflow-hidden">
+              <img src="images/portfolio/DHAWA.png" alt="Card F Thumbnail"
+                   class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105 group-hover:opacity-90">
+            </div>
+            <div class="mt-3">
+              <h3 class="font-[Montserrat] font-semibold tracking-wide text-lg group-hover:text-gray-700 transition-colors">DHAWA</h3>
+              <p class="font-[Nunito_Sans] text-sm text-gray-500 uppercase tracking-wider mt-1">branding | hotel</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="border-t-2 border-dashed border-black/50 my-8"></div>
+
+        <div class="mt-2 flex flex-wrap gap-4">
+          <a href="https://dribbble.com/lynnechen1" class="inline-flex items-center justify-center px-5 py-3 border-2 border-black bg-[#e8febf] font-mono hover:bg-black hover:text-white">VIEW MORE</a>
+          <button type="button" class="inline-flex items-center justify-center px-5 py-3 border-2 border-black bg-white font-mono hover:bg-black hover:text-white" data-accordion-close>CLOSE</button>
+        </div>
+
+        <!-- 兜底覆盖条（可选） -->
+        <i class="lip-over" style="background:#ead3c9"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION: DEAF ART ========== -->
+  <section id="deafart" class="relative isolate z-40 w-full -mt-[clamp(56px,7vw,140px)] mb-10 overflow-visible rounded-[28px]" data-accordion>
+    <button type="button" class="group relative w-full text-left focus:outline-none"
+      data-accordion-toggle aria-expanded="false" aria-controls="panel-deafart">
+      <img src="images/portfolio/文件夹_粉紫.png" alt="" class="w-full h-auto block select-none pointer-events-none" />
+      <div class="pointer-events-none absolute inset-0 z-10 px-[clamp(20px,5vw,56px)] py-[clamp(26px,6vw,64px)]
+                  flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+        <div class="flex-1 max-w-[600px] lg:mt-[4%] font-sans flex flex-col self-start">
+          <h2 class="mb-6 text-[clamp(40px,6.2vw,88px)] leading-[1] font-black tracking-tight">Deaf Art</h2>
+          <p class="mb-8 text-[clamp(16px,1.4vw,22px)] leading-[1.75] max-w-[56ch]">
+            Visual stories rooted in Deaf culture. My illustrations celebrate sign language, identity,
+            and community, bridging cultures with expressive and inclusive art.
+          </p>
+          <span class="mt-auto inline-flex items-center justify-center gap-3 w-[400px] px-6 py-3 border-2 border-black bg-[#e8febf]
+                       text-black font-mono text-[clamp(14px,1.2vw,18px)] transition group-hover:bg-black group-hover:text-white select-none">
+            LEARN MORE
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+              <path d="M6 18L18 6M9 6h9v9" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </div>
+        <div class="flex-shrink-0 w-auto h-auto lg:h-[78%] self-center">
+          <img src="images/portfolio/文件夹_cover-deafart.png" alt="Deaf Art Cover"
+               class="h-full w-auto object-contain block select-none pointer-events-none" loading="lazy" />
+        </div>
+      </div>
+    </button>
+
+    <div id="panel-deafart" class="accordion-panel amend-y" role="region" aria-labelledby="deafart">
+      <div class="lip-fix bg-[#cbbbf0] px-[clamp(20px,5vw,56px)] pb-10">
+        <i class="lip-strip" style="background:#cbbbf0"></i>
+
+        <div class="border-t-2 border-dashed border-black/50 my-8"></div>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Poster 1 -->
+        <div class="border-2 border-black bg-white overflow-hidden">
+          <img src="images/deafart/poster1.jpg" alt="Poster 1"
+              class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
+        </div>
+
+        <!-- Poster 2 -->
+        <div class="border-2 border-black bg-white overflow-hidden">
+          <img src="images/deafart/poster2.jpg" alt="Poster 2"
+              class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
+        </div>
+
+        <!-- Poster 3 -->
+        <div class="border-2 border-black bg-white overflow-hidden">
+          <img src="images/deafart/poster3.jpg" alt="Poster 3"
+              class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
+        </div>
+
+        <!-- Poster 4 -->
+        <div class="border-2 border-black bg-white overflow-hidden">
+          <img src="images/deafart/poster4.jpg" alt="Poster 4"
+              class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
+        </div>
+
+        <!-- Poster 5 -->
+        <div class="border-2 border-black bg-white overflow-hidden">
+          <img src="images/deafart/poster5.jpg" alt="Poster 5"
+              class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
+        </div>
+
+        <!-- Poster 6 -->
+        <div class="border-2 border-black bg-white overflow-hidden">
+          <img src="images/deafart/poster6.jpg" alt="Poster 6"
+              class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
+        </div>
+      </div>
+
+
+        <div class="border-t-2 border-dashed border-black/50 my-8"></div>
+
+        <div class="mt-2 flex flex-wrap gap-4">
+          <a href="https://www.instagram.com/pehpeh_csl_lab/" class="inline-flex items-center justify-center px-5 py-3 border-2 border-black bg-[#e8febf] font-mono hover:bg-black hover:text-white">VIEW MORE</a>
+          <button type="button" class="inline-flex items-center justify-center px-5 py-3 border-2 border-black bg-white font-mono hover:bg-black hover:text-white" data-accordion-close>CLOSE</button>
+        </div>
+
+        <i class="lip-over" style="background:#cbbbf0"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION: CODED WORKS ========== -->
+  <section id="codedworks" class="relative isolate z-50 w-full -mt-[clamp(56px,7vw,140px)] mb-10 overflow-visible rounded-[28px]" data-accordion>
+    <button type="button" class="group relative w-full text-left focus:outline-none"
+      data-accordion-toggle aria-expanded="false" aria-controls="panel-coded">
+      <img src="images/portfolio/文件夹_荧光绿.png" alt="" class="w-full h-auto block select-none pointer-events-none" />
+      <div class="pointer-events-none absolute inset-0 z-10 px-[clamp(20px,5vw,56px)] py-[clamp(26px,6vw,64px)]
+                  flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+        <div class="flex-1 max-w-[600px] lg:mt-[4%] font-sans flex flex-col self-start">
+          <h2 class="mb-6 text-[clamp(40px,6.2vw,88px)] leading-[1] font-black tracking-tight">Coded works</h2>
+          <p class="mb-8 text-[clamp(16px,1.4vw,22px)] leading-[1.75] max-w-[56ch]">
+            Where design meets code. From interactive websites to creative prototypes, I bring ideas
+            to life through clean, responsive, and accessible front-end development.
+          </p>
+          <span class="mt-auto inline-flex items-center justify-center gap-3 w-[400px] px-6 py-3 border-2 border-black bg-[#cbbfed]
+                       text-black font-mono text-[clamp(14px,1.2vw,18px)] transition group-hover:bg-black group-hover:text-white select-none">
+            LEARN MORE
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+              <path d="M6 18L18 6M9 6h9v9" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </div>
+        <div class="flex-shrink-0 w-auto h-auto lg:h-[78%] self-center">
+          <img src="images/portfolio/文件夹_cover-codedworks.png" alt="Coded Works Cover"
+               class="h-full w-auto object-contain block select-none pointer-events-none" loading="lazy" />
+        </div>
+      </div>
+    </button>
+
+    <div id="panel-coded" class="accordion-panel amend-y" role="region" aria-labelledby="codedworks">
+      <div class="lip-fix bg-[#e8febf] px-[clamp(20px,5vw,56px)] pb-10">
+        <i class="lip-strip" style="background:#e8febf"></i>
+
+        <div class="border-t-2 border-dashed border-black/50 my-8"></div>
+
+        <div class="border-2 border-black bg-white p-6">
+          <div class="aspect-[16/9] w-full border-2 border-black mb-4 overflow-hidden">
+          <img src="images/portfolio/sign_mapping.png" alt="ASL Map Project Hero" class="w-full h-full object-cover">
+          </div>
+          <h3 class="text-2xl font-bold mb-2">ASL Map</h3>
+          <p class="text-[clamp(14px,1.2vw,18px)] leading-relaxed max-w-[68ch]">
+            Sign Mapping is an American Sign Language (ASL) learning app that helps users learn sign language in an engaging way...
+          </p>
+          <div class="mt-4 flex gap-3">
+            <a class="px-4 py-2 border-2 border-black bg-white hover:bg-black hover:text-white font-mono" href="https://www.youtube.com/watch?v=3CqKwvwveOE">Demo Video</a>
+            <a class="px-4 py-2 border-2 border-black bg-white hover:bg-black hover:text-white font-mono" href="https://github.com/lynnec88/sign-mapping2">GitHub</a>
+          </div>
+        </div>
+
+        <div class="border-t-2 border-dashed border-black/50 my-8"></div>
+
+        <div class="mt-2 flex flex-wrap gap-4">
+          <a href="babydevlynne/" class="inline-flex items-center justify-center px-5 py-3 border-2 border-black bg-[#cbbfed] font-mono hover:bg-black hover:text-white">VIEW MORE</a>
+          <button type="button" class="inline-flex items-center justify-center px-5 py-3 border-2 border-black bg-white font-mono hover:bg-black hover:text-white" data-accordion-close>CLOSE</button>
+        </div>
+
+        <i class="lip-over" style="background:#e8febf"></i>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  (function () {
+  const root = document.querySelector('[data-accordion-root]');
+  if (!root) return;
+
+  const sections = [...root.querySelectorAll('[data-accordion]')];
+
+  function closeOthers(exceptPanel) {
+    sections.forEach(sec => {
+      sec.classList.remove('amend-y');
+    });
+
+    sections.forEach(sec => {
+      const btn = sec.querySelector('[data-accordion-toggle]');
+      const panel = sec.querySelector('.accordion-panel');
+      if (panel !== exceptPanel) {
+        panel.style.maxHeight = '0px'; // 关闭所有其他面板
+        btn?.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  function toggle(section) {
+    const btn = section.querySelector('[data-accordion-toggle]');
+    const panel = section.querySelector('.accordion-panel');
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+
+    if (expanded) {
+      panel.style.maxHeight = '0px'; // 关闭面板
+      btn.setAttribute('aria-expanded', 'false');
+      sections.forEach(sec => {
+        sec.classList.remove('amend-y');
+      });
+    } else {
+      closeOthers(panel); // 关闭其他面板
+      panel.style.maxHeight = panel.scrollHeight + 'px'; // 展开当前面板
+      btn.setAttribute('aria-expanded', 'true');
+      amendSectionY(section);
+
+      const fix = () => panel.style.maxHeight = panel.scrollHeight + 'px';
+      setTimeout(fix, 50);
+      panel.querySelectorAll('img').forEach(img => img.addEventListener('load', fix, { once: true }));
+    }
+  }
+
+  function amendSectionY(section, remove = false) {
+    const currentIndex = sections.indexOf(section);
+
+    if (currentIndex === sections.length - 1) {
+      return; // 如果是最后一个部分，则跳过
+    }
+
+    for (let i = currentIndex + 1; i < sections.length; i++) {
+      const laterSection = sections[i];
+      if (remove) {
+        laterSection.classList.remove('amend-y');
+      } else {
+        laterSection.classList.add('amend-y');
+      }
+    }
+  }
+
+  sections.forEach(section => {
+    const toggleBtn = section.querySelector('[data-accordion-toggle]');
+    toggleBtn.addEventListener('click', (e) => {
+      if (e.target.closest('a')) {
+        return; // 如果点击的是链接，直接返回，不执行 toggle
+      }
+      toggle(section); // 切换当前面板
+    });
+
+    const closeBtn = section.querySelector('[data-accordion-close]');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        const panel = section.querySelector('.accordion-panel');
+        panel.style.maxHeight = '0px'; // 关闭面板
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+  });
+
+  // 处理 VIEW MORE 链接
+  const viewMoreLinks = document.querySelectorAll('.mt-2 a');
+  viewMoreLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      const panels = document.querySelectorAll('.accordion-panel');
+      panels.forEach(panel => {
+        panel.style.maxHeight = null; // 清除面板的展开状态
+      });
+      // 不需要额外操作，链接会自动跳转
+    });
+  });
+
+  // 支持通过 hash 直接展开
+  const hash = location.hash?.replace('#', '');
+  if (hash) {
+    const target = root.querySelector('#' + hash)?.closest('[data-accordion]');
+    if (target) setTimeout(() => toggle(target), 200);
+  }
+})();
+</script>
+<!-- ======= /Portfolio Main ======= -->
+
+
+
+
+<!-- Footer -->
+<footer class="bg-gradient-to-r from-[#e8febf] via-[#cbbfed] via-[#cbbccd] to-[#ebd1c5]
+              bg-[length:200%_200%] animate-liquid border-black"
+        style="font-family: 'Nunito Sans', sans-serif;">
+  <div class="mx-auto max-w-7xl px-6 py-12 md:py-14">
+
+    <!-- 三栏 -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 items-start">
+      <!-- 左：Explore -->
+      <div>
+        <h3 class="pt-2 md:pt-4 text-lg md:text-xl tracking-[0.35em] uppercase mb-6 text-black font-bold">
+          Explore
+        </h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-black/70">
+          <li><a href="index.html" class="hover:text-black hover:underline underline-offset-4">HOME</a></li>
+          <li><a href="about.html" class="hover:text-black hover:underline underline-offset-4">ABOUT</a></li>
+          <li><a href="portfolio.html" class="hover:text-black hover:underline underline-offset-4">PORTFOLIO</a></li>
+          <li><a href="services.html" class="hover:text-black hover:underline underline-offset-4">SERVICES</a></li>
+          <li><a href="babydevlynne/" class="hover:text-black hover:underline underline-offset-4">MY WEB DEV PORTFOLIO</a></li>
+        </ul>
+      </div>
+
+      <!-- 中：Contact + 社交 -->
+      <div>
+        <h3 class="pt-2 md:pt-4 text-lg md:text-xl tracking-[0.35em] uppercase mb-6 text-black font-bold">
+          Contact
+        </h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-black/70">
+          <li><a href="contact.html" class="hover:text-black hover:underline underline-offset-4">GET IN TOUCH</a></li>
+          <li><a href="privacypolicy.html" class="hover:text-black hover:underline underline-offset-4">PRIVACY POLICY</a></li>
+          <li><a href="accessibilitystatement.html" class="hover:text-black hover:underline underline-offset-4">ACCESSIBILITY STATEMENT</a></li>
+        </ul>
+
+        <!-- 社交 -->
+        <div class="flex items-center gap-4 mt-6">
+          <a href="https://www.instagram.com/0nlynne.design/" target="_blank" rel="noopener" aria-label="Instagram"
+             class="hover:opacity-80 transition">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg"
+                 alt="Instagram" class="w-5 h-5">
+          </a>
+          <a href="https://www.linkedin.com/in/linglinchen/" target="_blank" rel="noopener" aria-label="LinkedIn"
+             class="hover:opacity-80 transition">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg"
+                 alt="LinkedIn" class="w-5 h-5">
+          </a>
+        </div>
+      </div>
+
+      <!-- 右：Logo -->
+      <div class="flex md:justify-end">
+        <div class="text-right">
+          <img src="images/logo.svg" alt="Onlynne Design Logo"
+               class="ml-auto w-32 md:w-40 lg:w-48 h-auto transition-transform duration-300 will-change-transform hover:scale-[1.03] hover:-rotate-1">
+        </div>
+      </div>
+    </div>
+
+    <!-- 版权 -->
+    <div class="mt-10 pt-6 text-center text-[11px] sm:text-xs text-black/75">
+      © 2025 | Made with ♥ by Onlynne Design
+    </div>
+  </div>
+</footer>
+</body>
+
+
+</html>

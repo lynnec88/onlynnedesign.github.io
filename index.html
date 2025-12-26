@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Onlynne Design</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Brawler&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Playfair Display', serif;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    .animate-marquee {
+      display: inline-block;
+      animation: marquee 30s linear infinite;
+    }
+  </style>
+</head>
+
+<body class="bg-white text-black">
+  <!-- 顶部容器：相对定位 -->
+<div class="relative">
+
+  <!-- Hero 大图：完整显示 -->
+  <img src="images/home-hero.png" alt="Onlynne Design Hero"
+       class="w-full h-auto block">
+
+  <!-- Header 覆盖在图片上方 -->
+  <header class="absolute inset-x-0 top-0 flex justify-between items-center px-6 py-4
+                 border-b-[2px] border-black/70 bg-transparent">
+    <nav class="hidden md:flex items-center gap-8 text-sm font-mono">
+      <a href="about.html" class="hover:text-gray-500">ABOUT</a>
+      <a href="portfolio.html" class="hover:text-gray-500">PORTFOLIO</a>
+      <a href="services.html" class="hover:text-gray-500">SERVICES</a>
+      <a href="https://www.etsy.com/" class="hover:text-gray-500">STORE</a>
+    </nav>
+   <div class="flex items-center gap-4">
+        <a href="contact.html" class="px-6 py-1.5 text-sm font-mono border-[2px] border-black bg-[#e8febf] hover:bg-[#cbbfed] transition-all duration-200 ease-in-out rounded-full">LET'S TALK</a>
+      </div>
+  </header>
+</div>
+
+<!-- Wave Marquee (clean ribbon + text on path) -->
+<!-- Full-bleed ribbon marquee -->
+<div class="relative w-screen left-1/2 -translate-x-1/2 overflow-hidden bg-white">
+  <svg viewBox="0 0 1440 160" preserveAspectRatio="none"
+       xmlns="http://www.w3.org/2000/svg"
+       class="block w-full h-[160px]">
+    <!-- 波浪路径：略超出视口，确保左右贴边无空白 -->
+    <path id="ribbonWave" d="
+      M-40,90
+      C120,40 280,140 440,90
+      S760,40 920,90
+      S1240,140 1480,90"
+      fill="none" pathLength="1000" />
+
+    <!-- 绿色丝带（直切端点 / 尖角连接） -->
+    <use href="#ribbonWave"
+         stroke="#e8febf"
+         stroke-width="56"
+         stroke-linecap="butt"
+         stroke-linejoin="miter"
+         fill="none" />
+
+    <!-- 沿路径滚动的文字（无缝） -->
+    <text font-family="'Nunito Sans', sans-serif"
+          font-size="16" letter-spacing="1.5" fill="black">
+      <textPath href="#ribbonWave" startOffset="0" dominant-baseline="middle" dy="-1">
+        JOIN ME ✶ ONLYNNE DESIGN ✶ JOIN ME ✶ ONLYNNE DESIGN ✶ JOIN ME ✶ ONLYNNE DESIGN ✶
+        JOIN ME ✶ ONLYNNE DESIGN ✶ JOIN ME ✶ ONLYNNE DESIGN ✶ JOIN ME ✶ ONLYNNE DESIGN ✶
+        JOIN ME ✶ ONLYNNE DESIGN ✶ JOIN ME ✶ ONLYNNE DESIGN ✶ JOIN ME ✶ ONLYNNE DESIGN ✶
+        JOIN ME ✶ ONLYNNE DESIGN ✶ JOIN ME ✶ ONLYNNE DESIGN ✶ JOIN ME ✶ ONLYNNE DESIGN ✶
+        <animate attributeName="startOffset" from="0" to="1000" dur="20s" repeatCount="indefinite" />
+      </textPath>
+    </text>
+  </svg>
+</div>
+
+  <!-- About Section -->
+<section id="about" class="px-6 py-20 text-center bg-white">
+  <!-- 标题 -->
+  <h2 class="text-[3rem] sm:text-[4rem] font-bold tracking-tight text-black mb-6"
+      style="font-family: 'Instrument Serif', serif;">
+    My Mission
+  </h2>
+
+  <!-- 简短文字 -->
+  <p class="max-w-2xl mx-auto text-lg sm:text-xl text-black/80 leading-relaxed"
+     style="font-family: 'Nunito Sans', sans-serif;">
+    At Onlynne Design, I craft bold brands, creative websites, and digital solutions 
+    that connect with audiences and drive real impact.  
+    My mission is to blend creativity and function, building meaningful experiences 
+    that help businesses grow and thrive.
+  </p>
+
+  <!-- 按钮 -->
+  <div class="mt-8">
+    <a href="about.html"
+       class="px-6 py-2 border-[2px] border-black rounded-full font-mono text-sm 
+              bg-[#e8febf] hover:bg-[#cbbfed] transition-all inline-block">
+      About me
+    </a>
+  </div>
+</section>
+
+
+<!-- Straight Scrolling Bar -->
+<div class="bg-[#cab2c8] border-y-[2px] border-black w-full overflow-hidden">
+  <div class="scroll-line text-sm sm:text-base font-mono tracking-wide text-black flex whitespace-nowrap" style="font-family: 'Nunito Sans', sans-serif;">
+    <span class="mx-8">JOIN ME ✶ ONLYNNE DESIGN ✶ JOIN ME ✶ ONLYNNE DESIGN ✶ JOIN ME ✶ ONLYNNE DESIGN ✶</span>
+    <span class="mx-8">JOIN ME ✶ ONLYNNE DESIGN ✶ JOIN ME ✶ ONLYNNE DESIGN ✶ JOIN ME ✶ ONLYNNE DESIGN ✶</span>
+    <span class="mx-8">JOIN ME ✶ ONLYNNE DESIGN ✶ JOIN ME ✶ ONLYNNE DESIGN ✶ JOIN ME ✶ ONLYNNE DESIGN ✶</span>
+  </div>
+</div>
+
+<style>
+@keyframes scroll-horizontal {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* 一半长度，另一半是复制的内容 */
+}
+.scroll-line {
+  display: flex;
+  width: max-content;
+  animation: scroll-horizontal 20s linear infinite;
+  will-change: transform;
+}
+@media (hover:hover) and (pointer:fine){
+  .scroll-line:hover {
+    animation-play-state: paused; /* 鼠标悬停时暂停 */
+  }
+}
+</style>
+
+
+<!-- SERVICES -->
+<section id="services" class="py-8 text-center bg-white">
+  <!-- 标题 -->
+  <h2 class="px-6 text-[4rem] sm:text-[5rem] font-bold tracking-tight text-black mb-8"
+      style="font-family: 'Instrument Serif', serif;">
+    Services
+  </h2>
+
+  <!-- Full-bleed 列表：让分隔线铺满整屏 -->
+  <div class="relative w-screen left-1/2 -translate-x-1/2">
+    <ul class="divide-y divide-black/50 border-y border-black/50">
+      <!-- row -->
+      <li>
+        <a href="#branding" class="group flex items-center justify-between py-6 hover:bg-black/5 transition-colors">
+          <!-- 行内左右留白（而不是限制分隔线宽度） -->
+          <div class="pl-6 sm:pl-8 lg:pl-24 flex items-baseline gap-6">
+            <span class="w-10 shrink-0 text-sm tracking-widest text-black/70 font-mono">01.</span>
+            <span class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight"
+                  style="font-family:'Space Grotesk',sans-serif;">
+              BRANDING STRATEGY
+            </span>
+          </div>
+
+          <!-- 细线长箭头（右对齐并随屏幕留白） -->
+          <span class="pr-6 sm:pr-8 lg:pr-24">
+            <svg class="h-5 w-12 sm:w-16 md:w-20 transform transition-transform duration-200 group-hover:translate-x-2"
+                 viewBox="0 0 80 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M2 10 H70" stroke="black" stroke-width="2" stroke-linecap="square"/>
+              <path d="M60 4 L70 10 L60 16" stroke="black" stroke-width="2" stroke-linejoin="miter" fill="none"/>
+            </svg>
+          </span>
+        </a>
+      </li>
+
+      <!-- row -->
+      <li>
+        <a href="#content" class="group flex items-center justify-between py-6 hover:bg-black/5 transition-colors">
+          <div class="pl-6 sm:pl-8 lg:pl-24 flex items-baseline gap-6">
+            <span class="w-10 shrink-0 text-sm tracking-widest text-black/70 font-mono">02.</span>
+            <span class="text-3xl sm:text-4xl lg:text-5xl italic"
+                  style="font-family:'Instrument Serif',serif;">
+              Content Creation
+            </span>
+          </div>
+          <span class="pr-6 sm:pr-8 lg:pr-24">
+            <svg class="h-5 w-12 sm:w-16 md:w-20 transform transition-transform duration-200 group-hover:translate-x-2"
+                 viewBox="0 0 80 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M2 10 H70" stroke="black" stroke-width="2" stroke-linecap="square"/>
+              <path d="M60 4 L70 10 L60 16" stroke="black" stroke-width="2" stroke-linejoin="miter" fill="none"/>
+            </svg>
+          </span>
+        </a>
+      </li>
+
+      <!-- row -->
+      <li>
+        <a href="#web" class="group flex items-center justify-between py-6 hover:bg-black/5 transition-colors">
+          <div class="pl-6 sm:pl-8 lg:pl-24 flex items-baseline gap-6">
+            <span class="w-10 shrink-0 text-sm tracking-widest text-black/70 font-mono">03.</span>
+            <span class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight"
+                  style="font-family:'Space Grotesk',sans-serif;">
+              WEBSITE DESIGN
+            </span>
+          </div>
+          <span class="pr-6 sm:pr-8 lg:pr-24">
+            <svg class="h-5 w-12 sm:w-16 md:w-20 transform transition-transform duration-200 group-hover:translate-x-2"
+                 viewBox="0 0 80 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M2 10 H70" stroke="black" stroke-width="2" stroke-linecap="square"/>
+              <path d="M60 4 L70 10 L60 16" stroke="black" stroke-width="2" stroke-linejoin="miter" fill="none"/>
+            </svg>
+          </span>
+        </a>
+      </li>
+
+      <!-- row -->
+      <li>
+        <a href="#social" class="group flex items-center justify-between py-6 hover:bg-black/5 transition-colors">
+          <div class="pl-6 sm:pl-8 lg:pl-24 flex items-baseline gap-6">
+            <span class="w-10 shrink-0 text-sm tracking-widest text-black/70 font-mono">04.</span>
+            <span class="text-3xl sm:text-4xl lg:text-5xl italic"
+                  style="font-family:'Instrument Serif',serif;">
+              Social Media Management
+            </span>
+          </div>
+          <span class="pr-6 sm:pr-8 lg:pr-24">
+            <svg class="h-5 w-12 sm:w-16 md:w-20 transform transition-transform duration-200 group-hover:translate-x-2"
+                 viewBox="0 0 80 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M2 10 H70" stroke="black" stroke-width="2" stroke-linecap="square"/>
+              <path d="M60 4 L70 10 L60 16" stroke="black" stroke-width="2" stroke-linejoin="miter" fill="none"/>
+            </svg>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 按钮 -->
+  <div class="mt-10">
+    <a href="services.html"
+       class="px-6 py-2 border-[2px] border-black rounded-full font-mono text-sm 
+              bg-[#e8febf] hover:bg-[#cbbfed] transition-all inline-block">
+      VIEW SERVICES
+    </a>
+  </div>
+</section>
+
+
+  <!-- Portfolio Gallery -->
+<section id="portfolio" class="py-12 bg-[#e8febf] border-t-[2px] border-black">
+  <!-- 标题（保留左右留白） -->
+  <div class="px-6">
+    <h2 class="text-center text-[4rem] sm:text-[5rem] leading-[1] font-bold tracking-tight text-black mb-12"
+        style="font-family: 'Instrument Serif', serif;">
+      Onlynne <em class="italic font-normal">Designs</em>
+    </h2>
+  </div>
+
+  <!-- 无缝滚动动画样式 -->
+  <style>
+    @keyframes scroll-loop {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); } /* 跑完原列表长度（内容翻倍后的一半） */
+    }
+    .scroll-loop {
+      display: flex;
+      width: max-content;
+      animation: scroll-loop 40s linear infinite;
+    }
+    /* 悬停时暂停（桌面端） */
+    @media (hover: hover) and (pointer: fine) {
+      .scroll-loop:hover { animation-play-state: paused; }
+    }
+  </style>
+
+  <!-- 横向滚动（全宽贴边、无左右留白） -->
+  <div class="w-full overflow-hidden">
+    <div class="scroll-loop">
+      <!-- 原始列表 -->
+      <div class="flex">
+        <img src="images/DHAWA/VI-07.png"  alt="Design 1"  class="inline-block h-[320px] sm:h-[420px] lg:h-[500px] mx-2 border-2 border-black">
+        <img src="images/design2.png"  alt="Design 2"  class="inline-block h-[320px] sm:h-[420px] lg:h-[500px] mx-2 border-2 border-black">
+        <img src="images/design3.png"  alt="Design 3"  class="inline-block h-[320px] sm:h-[420px] lg:h-[500px] mx-2 border-2 border-black">
+        <img src="images/design4.png"  alt="Design 4"  class="inline-block h-[320px] sm:h-[420px] lg:h-[500px] mx-2 border-2 border-black">
+        <img src="images/design6.png"  alt="Design 5"  class="inline-block h-[320px] sm:h-[420px] lg:h-[500px] mx-2 border-2 border-black">
+        <img src="images/breadhead/breadhead 0.png"  alt="Design 6"  class="inline-block h-[320px] sm:h-[420px] lg:h-[500px] mx-2 border-2 border-black">
+        <img src="images/Chili sauce jam package redesign/辣椒酱1.png" alt="Design 8"  class="inline-block h-[320px] sm:h-[420px] lg:h-[500px] mx-2 border-2 border-black">
+        <img src="images/matcha/matcha1.png"   alt="Design 9"  class="inline-block h-[320px] sm:h-[420px] lg:h-[500px] mx-2 border-2 border-black">
+        <img src="images/貘咖啡/貘咖啡1.png" alt="Design 10" class="inline-block h-[320px] sm:h-[420px] lg:h-[500px] mx-2 border-2 border-black">
+      </div>
+      <!-- 复制一份，实现无缝衔接 -->
+      <div class="flex">
+        <img src="images/DHAWA/VI-07.png"  alt="" aria-hidden="true" class="inline-block h-[320px] sm:h-[420px] lg:h-[500px] mx-2 border-2 border-black">
+        <img src="images/design2.png"  alt="" aria-hidden="true" class="inline-block h-[320px] sm:h-[420px] lg:h-[500px] mx-2 border-2 border-black">
+        <img src="images/design3.png"  alt="" aria-hidden="true" class="inline-block h-[320px] sm:h-[420px] lg:h-[500px] mx-2 border-2 border-black">
+        <img src="images/design4.png"  alt="" aria-hidden="true" class="inline-block h-[320px] sm:h-[420px] lg:h-[500px] mx-2 border-2 border-black">
+        <img src="images/design6.png"  alt="" aria-hidden="true" class="inline-block h-[320px] sm:h-[420px] lg:h-[500px] mx-2 border-2 border-black">
+        <img src="images/breadhead/breadhead 0.png"  alt="" aria-hidden="true" class="inline-block h-[320px] sm:h-[420px] lg:h-[500px] mx-2 border-2 border-black">
+        <img src="images/Chili sauce jam package redesign/辣椒酱1.png" alt="" aria-hidden="true" class="inline-block h-[320px] sm:h-[420px] lg:h-[500px] mx-2 border-2 border-black">
+        <img src="images/matcha/matcha1.png"   alt="" aria-hidden="true" class="inline-block h-[320px] sm:h-[420px] lg:h-[500px] mx-2 border-2 border-black">
+        <img src="images/貘咖啡/貘咖啡1.png" alt="" aria-hidden="true" class="inline-block h-[320px] sm:h-[420px] lg:h-[500px] mx-2 border-2 border-black">
+      </div>
+    </div>
+  </div>
+
+  <!-- 按钮（保留左右留白） -->
+  <div class="px-6 text-center mt-12">
+    <a href="portfolio.html"
+       class="px-6 py-2 border-2 border-black rounded-full font-mono text-sm transition-all bg-[#d3bed2] hover:bg-[#f7b680]">
+      VIEW PORTFOLIO
+    </a>
+  </div>
+</section>
+
+<!-- Straight Scrolling Bar -->
+<div class="bg-black border-y-[2px] border-black w-full overflow-hidden">
+  <div class="scroll-line text-sm sm:text-base font-mono tracking-wide text-white flex whitespace-nowrap" style="font-family: 'Nunito Sans', sans-serif;">
+    <span class="mx-8">ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶</span>
+    <span class="mx-8">ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶</span>
+    <span class="mx-8">ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶</span>
+  </div>
+</div>
+
+<style>
+@keyframes scroll-horizontal {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* 一半长度，另一半是复制的内容 */
+}
+.scroll-line {
+  display: flex;
+  width: max-content;
+  animation: scroll-horizontal 20s linear infinite;
+  will-change: transform;
+}
+@media (hover:hover) and (pointer:fine){
+  .scroll-line:hover {
+    animation-play-state: paused; /* 鼠标悬停时暂停 */
+  }
+}
+</style>
+
+ <!-- Contact CTA Section -->
+<section class="relative border-t-[2px] border-black overflow-hidden">
+  <!-- 背景图 -->
+  <div class="absolute inset-0">
+    <img src="images/CTAbg.jpg" alt="Contact CTA background-image"
+         class="w-full h-full object-cover">
+    <!-- 可选的浅色遮罩 -->
+    <div class="absolute inset-0 bg-white/50"></div>
+  </div>
+
+  <!-- 内容 -->
+  <div class="relative py-28 text-center">
+    <!-- 标题 -->
+    <h2 class="text-[3rem] sm:text-[4rem] md:text-[5rem] leading-[1.1] font-bold tracking-tight text-black mb-6"
+        style="font-family: 'Instrument Serif', serif;">
+      THE JOURNEY STARTS HERE — READY?
+    </h2>
+
+    <!-- 按钮 -->
+    <a href="services.html"
+       class="px-6 py-2 border-[2px] border-black rounded-full font-mono text-sm 
+              transition-all bg-[#ebd1c5] hover:bg-[#f7b680] inline-block">
+      Let's work together
+    </a>
+  </div>
+</section>
+
+
+<!-- CSS 动画 -->
+<style>
+@keyframes liquid {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animate-liquid {
+  animation: liquid 12s ease-in-out infinite;
+}
+</style>
+
+
+
+<!-- CLIENTS MARQUEE (full-bleed) -->
+<div class="relative w-screen left-1/2 -translate-x-1/2 border-y-[2px] border-black bg-white">
+  <div class="flex h-[74px]">
+    <!-- 左侧固定标签 -->
+    <div class="shrink-0 flex items-center justify-center w-[240px] px-4 border-r-[2px] border-black">
+      <span class="text-sm sm:text-base font-mono tracking-widest">SEEN AT</span>
+    </div>
+
+    <!-- 右侧滚动区 -->
+    <div class="relative flex-1 overflow-hidden">
+      <div class="clients-scroll h-full flex items-center">
+        <!-- 第一组（把你的 logo 换到下面这组里） -->
+        <ul class="flex items-center gap-12 pr-12">
+          <!-- 用图片 LOGO（推荐透明 PNG/SVG） -->
+          <li><img src="images/clients/客户logo/gwada_logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/Alcon-Logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/ctrip-logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/iconix_logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/中国太平_logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/张江logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/格兰富logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/悦榕庄icon-logo-green-2.svg" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/雅培中国logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/fosun-logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <!-- 也可用文字版（占位示例） -->
+          <!-- <li class="text-xl sm:text-2xl tracking-widest">SEPHORA</li> -->
+        </ul>
+
+        <!-- 复制一份实现无缝衔接（内容需与上面一模一样） -->
+        <ul class="flex items-center gap-12 pr-12" aria-hidden="true">
+          <li><img src="images/clients/客户logo/gwada_logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/Alcon-Logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/ctrip-logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/iconix_logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/中国太平_logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/张江logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/格兰富logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/悦榕庄icon-logo-green-2.svg" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/雅培中国logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/fosun-logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 样式：无缝滚动 + 悬停暂停 -->
+<style>
+@keyframes clients-marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* 一半长度（因内容翻倍） */
+}
+.clients-scroll{
+  width:max-content;
+  display:flex;
+  animation: clients-marquee 28s linear infinite;
+  will-change: transform;
+}
+@media (hover:hover) and (pointer:fine){
+  .clients-scroll:hover{ animation-play-state: paused; }
+}
+</style>
+
+
+<!-- Footer -->
+<footer class="bg-gradient-to-r from-[#e8febf] via-[#cbbfed] via-[#cbbccd] to-[#ebd1c5]
+              bg-[length:200%_200%] animate-liquid border-black"
+        style="font-family: 'Nunito Sans', sans-serif;">
+  <div class="mx-auto max-w-7xl px-6 py-12 md:py-14">
+
+    <!-- 三栏 -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 items-start">
+      <!-- 左：Explore -->
+      <div>
+        <h3 class="pt-2 md:pt-4 text-lg md:text-xl tracking-[0.35em] uppercase mb-6 text-black font-bold">
+          Explore
+        </h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-black/70">
+          <li><a href="index.html" class="hover:text-black hover:underline underline-offset-4">HOME</a></li>
+          <li><a href="about.html" class="hover:text-black hover:underline underline-offset-4">ABOUT</a></li>
+          <li><a href="portfolio.html" class="hover:text-black hover:underline underline-offset-4">PORTFOLIO</a></li>
+          <li><a href="services.html" class="hover:text-black hover:underline underline-offset-4">SERVICES</a></li>
+          <li><a href="babydevlynne/" class="hover:text-black hover:underline underline-offset-4">MY WEB DEV PORTFOLIO</a></li>
+        </ul>
+      </div>
+
+      <!-- 中：Contact + 社交 -->
+      <div>
+        <h3 class="pt-2 md:pt-4 text-lg md:text-xl tracking-[0.35em] uppercase mb-6 text-black font-bold">
+          Contact
+        </h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-black/70">
+          <li><a href="contact.html" class="hover:text-black hover:underline underline-offset-4">GET IN TOUCH</a></li>
+          <li><a href="privacypolicy.html" class="hover:text-black hover:underline underline-offset-4">PRIVACY POLICY</a></li>
+          <li><a href="accessibilitystatement.html" class="hover:text-black hover:underline underline-offset-4">ACCESSIBILITY STATEMENT</a></li>
+        </ul>
+
+        <!-- 社交 -->
+        <div class="flex items-center gap-4 mt-6">
+          <a href="https://www.instagram.com/0nlynne.design/" target="_blank" rel="noopener" aria-label="Instagram"
+             class="hover:opacity-80 transition">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg"
+                 alt="Instagram" class="w-5 h-5">
+          </a>
+          <a href="https://www.linkedin.com/in/linglinchen/" target="_blank" rel="noopener" aria-label="LinkedIn"
+             class="hover:opacity-80 transition">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg"
+                 alt="LinkedIn" class="w-5 h-5">
+          </a>
+        </div>
+      </div>
+
+      <!-- 右：Logo -->
+      <div class="flex md:justify-end">
+        <div class="text-right">
+          <img src="images/logo.svg" alt="Onlynne Design Logo"
+               class="ml-auto w-32 md:w-40 lg:w-48 h-auto transition-transform duration-300 will-change-transform hover:scale-[1.03] hover:-rotate-1">
+        </div>
+      </div>
+    </div>
+
+    <!-- 版权 -->
+    <div class="mt-10 pt-6 text-center text-[11px] sm:text-xs text-black/75">
+      © 2026 | Made with ♥ by Onlynne Design
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>

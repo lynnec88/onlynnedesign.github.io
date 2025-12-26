@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" class="transition-colors duration-300">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects - babydevlynne</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Space Grotesk', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+            display: ['Outfit', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&family=Outfit:wght@700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <style>
+    .swiper-slide {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+    }
+    .card-fixed-height {
+      min-height: 640px;
+    }
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+    display: none !important;
+  }
+    
+  </style>
+</head>
+<body class="bg-white text-black dark:bg-black dark:text-white font-sans text-base h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="flex items-center justify-between px-6 py-4 border-b border-gray-300 dark:border-gray-700">
+    <nav class="flex gap-4 text-sm md:text-base font-mono tracking-wide">
+      <a href="home.html" class="opacity-70 hover:opacity-100 hover:font-bold transition">01 : Home</a>
+      <span class="text-gray-400">|</span>
+      <a href="projects.html" class="opacity-100 font-bold transition">02 : Projects</a>
+      <span class="text-gray-400">|</span>
+      <a href="about.html" class="opacity-70 hover:opacity-100 hover:font-bold transition">03 : About Me</a>
+    </nav>
+    <div class="flex items-center gap-4 text-xl">
+      <i class="ri-sun-line"></i>
+      <button id="theme-toggle" class="w-10 h-5 bg-gray-300 dark:bg-gray-600 rounded-full relative">
+        <div id="toggle-indicator" class="w-5 h-5 bg-white dark:bg-black rounded-full shadow absolute top-0 left-0 transition-all duration-300"></div>
+      </button>
+      <i class="ri-moon-line"></i>
+    </div>
+  </header>
+
+  <!-- Main Carousel -->
+  <main class="px-6 py-12 max-w-6xl mx-auto">
+    <div class="sticky top-0 z-30 bg-white dark:bg-black border-gray-300 dark:border-gray-700 px-4 py-3">
+      <h1 class="text-5xl font-display tracking-tight mb-12 text-center">02 : Projects</h1>
+    </div>
+
+    <div class="swiper mySwiper relative">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <div class="group overflow-hidden border border-black rounded-lg bg-white dark:bg-black dark:border-white max-w-md mx-auto h-full flex flex-col card-fixed-height">
+            <img src="image/projects/onlynnedesign.png" alt="onlynnedesign website" class="w-full h-64 object-cover">
+            <div class="p-6 flex-grow flex flex-col justify-between">
+              <p class="text-xs text-gray-500">001/004</p>
+              <h3 class="text-2xl font-bold mt-2 mb-1 font-display">Onlynne Design Studio</h3>
+              <p class="text-sm mb-4">Onlynne Design Studio is a responsive personal brand design portfolio website. 
+                Users can browse projects, view case studies, and access interactive features, 
+                including project showcases, contact forms, client feedback, and an online store. 
+                Built with HTML, CSS, and vanilla JavaScript, the site utilizes Tailwind CSS 
+                for a visually appealing design that adapts to various devices.</p>
+              <div class="flex gap-4 mt-auto">
+                <a href="https://www.youtube.com/watch?v=3CqKwvwveOE" class="px-4 py-2 text-sm font-semibold transition bg-black text-white dark:bg-white dark:text-black hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white border border-black dark:border-white">Live Site</a>
+                <a href="https://github.com/lynnec88/sign-mapping2" class="px-4 py-2 text-sm font-semibold transition bg-black text-white dark:bg-white dark:text-black hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white border border-black dark:border-white">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+          <div class="group overflow-hidden border border-black rounded-lg bg-white dark:bg-black dark:border-white max-w-md mx-auto h-full flex flex-col card-fixed-height">
+            <img src="image/projects/sign_mapping.png" alt="ASL Map" class="w-full h-64 object-cover">
+            <div class="p-6 flex-grow flex flex-col justify-between">
+              <p class="text-xs text-gray-500">002/004</p>
+              <h3 class="text-2xl font-bold mt-2 mb-1 font-display">ASL Map</h3>
+              <p class="text-sm mb-4">Sign Mapping is an American Sign Language (ASL) learning app that helps users learn sign language in an engaging and fun way. Users can create an account to access specific signs, browse different categories, and share detail cards of signs they wish to review. Also included are quizzes and regional signs displayed on a map. 
+              </p>
+              <div class="flex gap-4 mt-auto">
+                <a href="https://www.youtube.com/watch?v=3CqKwvwveOE" class="px-4 py-2 text-sm font-semibold transition bg-black text-white dark:bg-white dark:text-black hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white border border-black dark:border-white">Demo Video</a>
+                <a href="https://github.com/lynnec88/sign-mapping2" class="px-4 py-2 text-sm font-semibold transition bg-black text-white dark:bg-white dark:text-black hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white border border-black dark:border-white">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <!-- Slide 3 -->
+        <div class="swiper-slide">
+          <div class="group overflow-hidden border border-black rounded-lg bg-white dark:bg-black dark:border-white max-w-md mx-auto h-full flex flex-col card-fixed-height">
+            <img src="image/projects/myillustration.png" alt="Illustration Portfolio" class="w-full h-64 object-cover">
+            <div class="p-6 flex-grow flex flex-col justify-between">
+              <p class="text-xs text-gray-500">003/004</p>
+              <h3 class="text-2xl font-bold mt-2 mb-1 font-display">Illustration Portfolio</h3>
+              <p class="text-sm mb-4">A responsive illustration portfolio where visitors can enjoy browsing artwork, view full-size pieces with navigation controls, and explore a playful mock store with cart and checkout interactions. Built with HTML, CSS, and vanilla JavaScript.
+              </p>
+              <div class="flex gap-4 mt-auto">
+                <a href="https://lynnec88.github.io/illustration-portfoliio/" class="px-4 py-2 text-sm font-semibold transition bg-black text-white dark:bg-white dark:text-black hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white border border-black dark:border-white">Live Site</a>
+                <a href="https://github.com/lynnec88/illustration-portfoliio" class="px-4 py-2 text-sm font-semibold transition bg-black text-white dark:bg-white dark:text-black hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white border border-black dark:border-white">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="swiper-slide">
+          <div class="group overflow-hidden border border-black rounded-lg bg-white dark:bg-black dark:border-white max-w-md mx-auto h-full flex flex-col card-fixed-height">
+            <img src="image/projects/melon-booking.png" alt="Melon Booking" class="w-full h-64 object-cover">
+            <div class="p-6 flex-grow flex flex-col justify-between">
+              <p class="text-xs text-gray-500">004/004</p>
+              <h3 class="text-2xl font-bold mt-2 mb-1 font-display">Melon Booking</h3>
+              <p class="text-sm mb-4">A responsive booking web application where users can search available time slots, click to book, and view their confirmed bookings. Booked slots are marked accordingly to prevent double booking. Built with Flask, PostgreSQL, SQLAlchemy, HTML, CSS, JavaScript, Jinja2, and Bootstrap, with user data powered by a mock API.</p>
+              <div class="flex gap-4 mt-auto">
+                <a href="https://melon-booking.onrender.com/" class="px-4 py-2 text-sm font-semibold transition bg-black text-white dark:bg-white dark:text-black hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white border border-black dark:border-white">Live Site</a>
+                <a href="https://github.com/lynnec88/melon-booking" class="px-4 py-2 text-sm font-semibold transition bg-black text-white dark:bg-white dark:text-black hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white border border-black dark:border-white">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Updated arrows -->
+      <!-- Left Arrow -->
+      <div class="swiper-button-prev 
+        bg-black text-white 
+        dark:bg-white dark:text-black 
+        absolute top-1/2 left-2 z-10 -translate-y-1/2 
+        w-10 h-10 flex items-center justify-center 
+        hover:opacity-80 transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+      </div>
+
+      <!-- Right Arrow -->
+      <div class="swiper-button-next 
+        bg-black text-white 
+        dark:bg-white dark:text-black 
+        absolute top-1/2 right-2 z-10 -translate-y-1/2 
+        w-10 h-10 flex items-center justify-center 
+        hover:opacity-80 transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+      </svg>
+</div>
+    </div>
+  </main>
+  <!-- Footer -->
+  <footer class="text-center text-xs py-6 border-t border-gray-300 dark:border-gray-700">
+    <p>© 2025 | Coded by Lynne.</p>
+    <div class="flex justify-center gap-4 mt-2 text-3xl">
+      <a href="https://www.linkedin.com/in/linglinchen/" class="hover:text-gray-400"><i class="ri-linkedin-box-fill"></i></a>
+      <a href="https://github.com/lynnec88" class="hover:text-gray-400"><i class="ri-github-fill"></i></a>
+    </div>
+  </footer> 
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      new Swiper('.mySwiper', {
+        effect: 'slide',
+        speed: 600,
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        },
+        breakpoints: {
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 }
+        }
+      });
+
+      const toggleBtn = document.getElementById('theme-toggle');
+      const toggleIndicator = document.getElementById('toggle-indicator');
+      const html = document.documentElement;
+
+      toggleBtn.addEventListener('click', () => {
+        html.classList.toggle('dark');
+        toggleIndicator.style.transform = html.classList.contains('dark')
+          ? 'translateX(100%)'
+          : 'translateX(0)';
+      });
+    });
+  </script>
+</body>
+</html>

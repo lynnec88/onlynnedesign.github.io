@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" class="transition-colors duration-300">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home - babydevlynne</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Space Grotesk', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700&display=swap" rel="stylesheet">
+  <style>
+    .typing::after {
+      content: '|';
+      animation: blink 0.7s steps(1) infinite;
+      margin-left: 2px;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+<body class="bg-white text-black dark:bg-black dark:text-white font-sans text-base h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="flex items-center justify-between px-6 py-4 border-b border-gray-300 dark:border-gray-700">
+    <nav class="flex gap-4 text-sm md:text-base font-mono tracking-wide">
+      <a href="home.html" class="opacity-100 font-bold transition">01 : Home</a>
+      <span class="text-gray-400">|</span>
+      <a href="projects.html" class="opacity-70 hover:opacity-100 hover:font-bold transition">02 : Projects</a>
+      <span class="text-gray-400">|</span>
+      <a href="about.html" class="opacity-70 hover:opacity-100 hover:font-bold transition">03 : About Me</a>
+    </nav>
+    <div class="flex items-center gap-4 text-xl">
+      <i class="ri-sun-line"></i>
+      <button id="theme-toggle" class="w-10 h-5 bg-gray-300 dark:bg-gray-600 rounded-full relative">
+        <div id="toggle-indicator" class="w-5 h-5 bg-white dark:bg-black rounded-full shadow absolute top-0 left-0 transition-all duration-300"></div>
+      </button>
+      <i class="ri-moon-line"></i>
+    </div>
+  </header>
+
+  <main class="h-screen flex px-6 gap-4">
+    <!-- 左边内容 -->
+    <div class="flex flex-col justify-center flex-1 text-center md:text-left pl-6 md:pl-24">
+      <h1 class="text-[10vw] font-display mb-4 leading-none">Hello,</h1>
+      <h2 class="text-[5vw] font-display text-gray-700 dark:text-gray-300 leading-tight break-words">
+        <span id="typewriter" class="typing inline-block"></span>
+      </h2>
+      <div class="flex gap-6 mt-8 justify-center md:justify-start">
+        <a href="projects.html"
+           class="px-6 py-3 border border-black text-white bg-black hover:bg-white hover:text-black 
+                  dark:bg-white dark:text-black dark:border-white dark:hover:bg-black dark:hover:text-white 
+                  transition font-semibold text-lg">
+          See Projects
+        </a>
+        <a href="about.html"
+           class="px-6 py-3 border border-black text-white bg-black hover:bg-white hover:text-black 
+                  dark:bg-white dark:text-black dark:border-white dark:hover:bg-black dark:hover:text-white 
+                  transition font-semibold text-lg">
+          About Me
+        </a>
+      </div>
+    </div>
+  
+    <!-- 右边头像区域 -->
+    <div class="w-[40%] min-w-[240px] flex items-center justify-center h-full">
+        <img src="image/black white avatar.png" alt="Avatar" class="w-full h-full object-cover" />
+      </div>
+    </main>
+  
+  
+  <!-- Footer -->
+  <footer class="text-center text-xs py-6 border-t border-gray-300 dark:border-gray-700">
+    <p>© 2025 | Coded by Lynne.</p>
+    <div class="flex justify-center gap-4 mt-2 text-3xl">
+      <a href="https://www.linkedin.com/in/linglinchen/" class="hover:text-gray-400"><i class="ri-linkedin-box-fill"></i></a>
+      <a href="https://github.com/lynnec88" class="hover:text-gray-400"><i class="ri-github-fill"></i></a>
+    </div>
+  </footer>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    const toggleIndicator = document.getElementById('toggle-indicator');
+    const html = document.documentElement;
+    toggleBtn.addEventListener('click', () => {
+      html.classList.toggle('dark');
+      toggleIndicator.style.transform = html.classList.contains('dark') ? 'translateX(100%)' : 'translateX(0)';
+    });
+  </script>
+
+  <!-- Typing Animation Script -->
+  <script>
+    const texts = [
+      "I'm Lynne Chen",
+      "Software Developer",
+      "UI/UX Designer",
+      "Welcome to",
+      "Babydevlynne",
+    ];
+
+    let i = 0;
+    let j = 0;
+    let currentText = '';
+    let isDeleting = false;
+    const speed = 100;
+    const element = document.getElementById('typewriter');
+
+    function typeLoop() {
+      currentText = texts[i];
+      if (!isDeleting) {
+        element.textContent = currentText.substring(0, j + 1);
+        j++;
+        if (j === currentText.length) {
+          isDeleting = true;
+          setTimeout(typeLoop, 1200); // wait before deleting
+          return;
+        }
+      } else {
+        element.textContent = currentText.substring(0, j - 1);
+        j--;
+        if (j === 0) {
+          isDeleting = false;
+          i = (i + 1) % texts.length;
+        }
+      }
+      setTimeout(typeLoop, isDeleting ? speed / 2 : speed);
+    }
+
+    document.addEventListener('DOMContentLoaded', typeLoop);
+  </script>
+  
+</body>
+</html>

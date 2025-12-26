@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Onlynne Design</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Brawler&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Playfair Display', serif;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    .animate-marquee {
+      display: inline-block;
+      animation: marquee 30s linear infinite;
+    }
+  </style>
+</head>
+
+<body class="bg-white text-black">
+  <!-- 顶部容器（Header 独立在 Hero 上方，不覆盖） -->
+  <div class="relative">
+
+    <!-- Header（固定在黑线条上方，不覆盖 Hero） -->
+    <header class="border-b-[2px] border-black bg-white">
+      <div class="mx-auto max-w-7xl flex items-center justify-between gap-6 px-6 md:px-10 py-3">
+        <!-- 左：Logo -->
+        <a href="index.html" class="shrink-0 inline-flex">
+          <img src="images/logo.svg" alt="Onlynne Design Logo"
+               class="w-[90px] md:w-[110px] h-auto transition duration-300 ease-in-out hover:scale-105 hover:rotate-1">
+        </a>
+
+        <!-- 中：导航 -->
+        <nav class="hidden md:flex items-center gap-8 text-[0.9rem] font-mono">
+          <a href="about.html" class="transition hover:text-gray-600">ABOUT</a>
+          <a href="portfolio.html" class="transition hover:text-gray-600">PORTFOLIO</a>
+          <a href="services.html" class="transition hover:text-gray-600">SERVICES</a>
+          <a href="https://www.etsy.com/" class="transition hover:text-gray-600" target="_blank" rel="noopener">STORE</a>
+        </nav>
+
+        <!-- 右：按钮 -->
+        <a href="contact.html"
+           class="px-5 md:px-6 py-1.5 text-sm font-mono border-[2px] border-black rounded-full bg-[#e8febf] hover:bg-[#cbbfed] transition-all">
+          LET'S TALK
+        </a>
+      </div>
+    </header>
+    <!-- Hero 大图（紧随其后，确保黑线条可见且不被遮挡） -->
+    <img src="images/services-hero.png" alt="Portfolio Hero" class="w-full h-auto block select-none">
+
+  </div>
+
+<!-- Straight Scrolling Bar -->
+<div class="bg-[#e8febf] border-y-[2px] border-black w-full overflow-hidden">
+  <div class="scroll-line text-sm sm:text-base font-mono tracking-wide text-black flex whitespace-nowrap" style="font-family: 'Nunito Sans', sans-serif;">
+    <span class="mx-8">ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶</span>
+    <span class="mx-8">ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶</span>
+    <span class="mx-8">ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶</span>
+  </div>
+</div>
+
+<style>
+@keyframes scroll-horizontal {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* 一半长度，另一半是复制的内容 */
+}
+.scroll-line {
+  display: flex;
+  width: max-content;
+  animation: scroll-horizontal 20s linear infinite;
+  will-change: transform;
+}
+@media (hover:hover) and (pointer:fine){
+  .scroll-line:hover {
+    animation-play-state: paused; /* 鼠标悬停时暂停 */
+  }
+}
+</style>
+
+<!-- Brand Message Section (Enhanced) -->
+<section class="bg-[#d9c7ef] px-6 sm:px-12 md:px-24 py-20 grid md:grid-cols-2 gap-16">
+  <!-- Left Title Block -->
+  <div class="flex items-center">
+    <h2 class="text-[2.8rem] sm:text-[3.5rem] md:text-[4.5rem] leading-tight font-bold text-black" style="font-family: 'Instrument Serif', serif;">
+  <span class="inline-block text-[2.5rem] mr-2">★</span>
+  For brands that <br>hustle hard and <br><em class="italic">shine louder！</em>
+  </h2>
+  </div>
+
+  <!-- Right Text Block -->
+  <div class="space-y-6 text-base sm:text-lg text-black" style="font-family: 'Nunito Sans', sans-serif;">
+    <p>Feeling like your brand just isn’t hitting the mark anymore? Maybe you started with a quick logo, a DIY website, or a brand that made sense then—but now, things have changed. Your business has grown, evolved, and it’s time your brand caught up.</p>
+    
+    <p>Because when your brand doesn't reflect your vision, your audience feels it too.  
+    A blurry message, a dated look, or a generic vibe? That’s not what you’re about. You deserve a brand that actually represents the heart of what you do—and helps you stand out while doing it.</p>
+    
+    <p><strong>Here’s the good news:</strong> you don’t have to do it alone.  
+    Whether you need a total brand overhaul or just a fresh design direction, I help ambitious business owners turn their visual identity into a confident, cohesive, and scroll-stopping experience.  
+    <em>Strategic. Stylish. And so you.</em></p>
+    
+    <p>If you're ready to ditch the guesswork and build a brand that actually works, I'm here to help.  
+    Let’s bring your vision to life—one bold design decision at a time.</p>
+  </div>
+</section>
+
+<section class="bg-white px-6 sm:px-12 md:px-20 py-20 border-t-[2px] border-black">
+  <h2 class="text-center text-[4rem] sm:text-[5rem] leading-none font-extrabold tracking-tight text-black" style="font-family: 'Instrument Serif', serif;">
+    <span class="text-[3rem] mr-2">★</span> One Membership <br>Limitless Options <span class="text-[3rem] ml-2">★</span>
+  </h2>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-16 items-stretch">
+
+    <!-- 左栏卡片 -->
+    <div class="col-span-12 lg:col-span-4 flex">
+      <div class="relative w-full max-w-sm mx-auto flex flex-col">
+        <div class="flex-grow bg-white text-black px-6 py-8 rounded-[22px] border border-black 
+                    relative z-0 flex flex-col min-h-full
+                    hover:bg-[#ffe1e1] transition-colors duration-200">
+
+          <!-- 顶部主图 -->
+          <figure class="w-full mb-6">
+            <div class="w-full">
+              <img
+                src="images/portfolio/文件夹_cover-featured projects.png"
+                alt="Onlynne Design showcase"
+                class="w-full h-auto block"
+              >
+            </div>
+          </figure>
+
+          <!-- 文案区 -->
+          <div class="mt-2">
+            <h2 class="text-[1.75rem] font-sans font-bold leading-tight">Join OnlynneDesign</h2>
+            <div class="my-3 border-t border-dotted border-black/70"></div>
+            <p class="text-sm font-sans leading-relaxed opacity-90">
+              Your all-in-one design sidekick: branding, UI, and front-end tweaks with seasonal refreshes and speedy fixes. 
+              Pause whenever, go big when you need, and stay sharp all year.
+            </p>
+
+            <div class="mt-5">
+              <a href="contact.html"
+                 class="group inline-flex w-full items-center justify-between gap-3
+                        px-5 py-2 border border-black
+                        bg-gradient-to-r from-[#e9d6ff] to-[#d9c2ff]
+                        text-[12px] tracking-[0.15em] uppercase text-black font-sans font-medium
+                        transition duration-200
+                        hover:from-[#efe5ff] hover:to-[#e6d8ff]">
+                <span>LET'S TALK</span>
+                <svg class="w-5 h-5 -rotate-135 transition-transform duration-200
+                            group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M6 18L18 6M9 6h9v9"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 中间主卡：Monthly Club -->
+    <div class="col-span-12 lg:col-span-5">
+      <div class="h-full bg-white text-black border border-black rounded-xl overflow-hidden flex flex-col
+                  hover:bg-[#e8febf] transition-colors duration-200">
+        <!-- Header -->
+        <div class="flex justify-between items-center px-6 pt-6">
+          <h3 class="text-xl font-sans font-bold">Monthly Club</h3>
+          <span class="inline-block bg-[#ffd965] text-black text-xs px-4 py-1 rounded-full font-mono tracking-wide uppercase">
+            Pause or cancel anytime
+          </span>
+        </div>
+
+        <hr class="border-t border-dashed border-neutral-600 my-4 mx-6" />
+
+        <!-- Price -->
+        <div class="px-6 pb-4">
+          <div class="flex items-baseline space-x-2 font-sans font-bold">
+            <span class="text-[2.5rem] leading-none">$3,999</span>
+            <span class="text-sm">/month</span>
+          </div>
+        </div>
+
+        <!-- Included -->
+        <div class="relative bg-white text-black px-6 py-6 rounded-md mx-6 mb-6 border border-black">
+          <span class="absolute -top-3 left-6 bg-[#cfc1fa] border border-black text-[10px] px-2 py-1 font-mono uppercase rounded-sm tracking-wide">
+            INCLUDED
+          </span>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-10 text-sm font-sans">
+            <p>✶ One request at a time</p>
+            <p>✶ Unlimited stock photos</p>
+            <p>✶ Avg. 3 days delivery</p>
+            <p>✶ Up to 2 users</p>
+            <p>✶ Unlimited brands</p>
+            <p>✶ Pause or cancel anytime</p>
+            <p>✶ Webflow development</p>
+          </div>
+        </div>
+
+        <!-- Benefits -->
+        <div class="grid sm:grid-cols-2 gap-4 px-6 pb-6 font-sans">
+          <div class="rounded-xl p-4 border border-black bg-white">
+            <div class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-24 h-24 mt-[2px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <circle cx="12" cy="12" r="10" stroke-width="1" />
+                <line x1="10" y1="9" x2="10" y2="15" stroke-width="1" />
+                <line x1="14" y1="9" x2="14" y2="15" stroke-width="1" />
+              </svg>
+              <div>
+                <h4 class="font-semibold">Pause anytime</h4>
+                <p class="text-sm text-neutral-700 mt-1">Temporarily pause your subscription anytime, no sweat.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-xl p-4 border border-black bg-white">
+            <div class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-24 h-24 mt-[2px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <circle cx="12" cy="12" r="10" stroke-width="1" />
+                <path d="M9 12l2 2l4 -4" stroke-width="1" fill="none" />
+              </svg>
+              <div>
+                <h4 class="font-semibold">Try it for a week</h4>
+                <p class="text-sm text-neutral-700 mt-1">Not loving it after a week? Get 75% back, no questions asked.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- monthly club bar -->
+        <figure class="w-full mb-6">
+          <div class="w-full">
+            <img
+              src="images/monthly club bar.png"
+              alt="Onlynne Design showcase"
+              class="w-full h-auto block"
+            >
+          </div>
+        </figure>
+
+        <!-- CTA -->
+        <div class="px-6 pb-8">
+          <a href="https://stripe.com/"
+             class="group inline-flex w-full items-center justify-between gap-3
+                        px-5 py-2 border border-black
+                        bg-gradient-to-r from-[#e9d6ff] to-[#d9c2ff]
+                        text-[12px] tracking-[0.15em] uppercase text-black font-sans font-medium
+                        transition duration-200
+                        hover:from-[#efe5ff] hover:to-[#e6d8ff]">
+            <span>JOIN NOW</span>
+            <svg class="w-5 h-5 -rotate-135 transition-transform duration-200
+                        group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 18L18 6M9 6h9v9"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 右侧卡片：服务标签 -->
+    <div class="col-span-12 lg:col-span-3">
+      <div class="h-full bg-white text-black border border-black rounded-xl overflow-hidden flex flex-col
+                  hover:bg-[#efe5ff] transition-colors duration-200">
+        <div class="text-center space-y-2">
+          <h3 class="text-[2rem] font-bold text-black font-sans py-10">
+            Branding, Apps, Websites & more
+          </h3>
+          <p class="text-base leading-relaxed text-black font-sans">
+            Everything you need — all in one place.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-3 max-w-lg py-20">
+          <span class="px-4 py-1 rounded-full border border-black bg-[#e8febf] hover:bg-[#cbbfed] text-sm text-black font-sans">Illustration</span>
+          <span class="px-4 py-1 rounded-full border border-black bg-[#e8febf] hover:bg-[#cbbfed] text-sm text-black font-sans">Logos</span>
+          <span class="px-4 py-1 rounded-full border border-black bg-[#e8febf] hover:bg-[#cbbfed] text-sm text-black font-sans">Slide decks</span>
+          <span class="px-4 py-1 rounded-full border border-black bg-[#e8febf] hover:bg-[#cbbfed] text-sm text-black font-sans">Brand guides</span>
+          <span class="px-4 py-1 rounded-full border border-black bg-[#e8febf] hover:bg-[#cbbfed] text-sm text-black font-sans">Social media</span>
+          <span class="px-4 py-1 rounded-full border border-black bg-[#e8febf] hover:bg-[#cbbfed] text-sm text-black font-sans">Print design</span>
+          <span class="px-4 py-1 rounded-full border border-black bg-[#e8febf] hover:bg-[#cbbfed] text-sm text-black font-sans">Motion graphic</span>
+          <span class="px-4 py-1 rounded-full border border-black bg-[#e8febf] hover:bg-[#cbbfed] text-sm text-black font-sans">Web design</span>
+          <span class="px-4 py-1 rounded-full border border-black bg-[#e8febf] hover:bg-[#cbbfed] text-sm text-black font-sans">UI/UX design</span>
+          <span class="px-4 py-1 rounded-full border border-black bg-[#e8febf] hover:bg-[#cbbfed] text-sm text-black font-sans">Website development</span>
+          <span class="px-4 py-1 rounded-full border border-black bg-[#e8febf] hover:bg-[#cbbfed] text-sm text-black font-sans">Mobile apps</span>
+          <span class="px-4 py-1 rounded-full border border-black bg-[#d9c7ef] hover:bg-[#ffd965] text-sm text-black font-sans">+ more</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Frequently asked questions -->
+<section class="bg-white border-t-[2px] border-black px-6 sm:px-12 md:px-20 py-20">
+  <h2 class="text-[4rem] sm:text-[5rem] leading-none font-extrabold tracking-tight text-black" style="font-family: 'Instrument Serif', serif;">
+    <em class="italic">Frequently</em> asked questions
+  </h2>
+
+  <div class="mt-12 space-y-6">
+    <!-- FAQ 1 -->
+    <details class="group border-b border-neutral-300 pb-4">
+      <summary class="flex justify-between items-center cursor-pointer text-black text-lg font-sans font-semibold">
+        1. Who is the designer?
+        <svg class="w-5 h-5 transform transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </summary>
+      <p class="mt-4 text-sm font-sans text-neutral-700 leading-relaxed">
+        Onlynne design is a one-woman agency run by Lynne, the founder. She doesn’t outsource or hire other designers — you work with her directly.
+      </p>
+    </details>
+
+    <!-- FAQ 2 -->
+    <details class="group border-b border-neutral-300 pb-4">
+      <summary class="flex justify-between items-center cursor-pointer text-black text-lg font-sans font-semibold">
+        2. How do we talk with a deaf designer?
+        <svg class="w-5 h-5 transform transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </summary>
+      <div class="mt-4 text-sm font-sans text-neutral-700 leading-relaxed space-y-3">
+        <p>Hey! Just a heads-up — I’m Deaf, so I usually chat with clients through email or messaging apps (like WeChat or Instagram DM).</p>
+        <p>If you don’t speak Chinese, no worries — I can communicate in English, ASL, or International Sign (IS).</p>
+        <p>Need a Zoom call? I’m happy to do that with an ASL interpreter.
+        <p>All Zoom times are in <strong>Eastern Standard Time (EST)</strong>.</p>
+        <p>Thanks for your patience if things get a little bumpy! 😊</p>
+      </div>
+    </details>
+
+    <!-- FAQ 3 -->
+    <details class="group border-b border-neutral-300 pb-4">
+      <summary class="flex justify-between items-center cursor-pointer text-black text-lg font-sans font-semibold">
+        3. How fast will I receive my designs?
+        <svg class="w-5 h-5 transform transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </summary>
+      <p class="mt-4 text-sm font-sans text-neutral-700 leading-relaxed">
+        On average, most requests are completed in just three days or less. However, more complex requests can take longer.
+      </p>
+    </details>
+
+    <!-- FAQ 4 -->
+    <details class="group border-b border-neutral-300 pb-4">
+      <summary class="flex justify-between items-center cursor-pointer text-black text-lg font-sans font-semibold">
+        4. How does onboarding work?
+        <svg class="w-5 h-5 transform transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </summary>
+      <div class="mt-4 text-sm font-sans text-neutral-700 leading-relaxed space-y-3">
+        <p>After you subscribe, we’ll create your Trello board (typically within an hour). 
+          Accept the invite and follow the on-board instructions to get started right away.</p>
+      </div>
+    </details>
+
+    <!-- FAQ 5 -->
+    <details class="group border-b border-neutral-300 pb-4">
+      <summary class="flex justify-between items-center cursor-pointer text-black text-lg font-sans font-semibold">
+        5. Is there a limit to how many requests I can make?
+        <svg class="w-5 h-5 transform transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </summary>
+      <p class="mt-4 text-sm font-sans text-neutral-700 leading-relaxed">
+        After you subscribe, drop in as many design requests as you want—I’ll tackle them one by one.
+      </p>
+    </details>
+
+    <!-- FAQ 6 -->
+    <details class="group border-b border-neutral-300 pb-4">
+      <summary class="flex justify-between items-center cursor-pointer text-black text-lg font-sans font-semibold">
+        6. How does the pause feature work?
+        <svg class="w-5 h-5 transform transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </summary>
+      <div class="mt-4 text-sm font-sans text-neutral-700 leading-relaxed space-y-3">
+        <p>Don’t worry if you don’t have a whole month of design work lined up. Even with just one or two requests, you can hit pause.</p>
+        <p>Each billing cycle is 31 days. Say you use 21 days, then pause—you’ll still have 10 days in the bank to use whenever you’re ready.</p>
+      </div>
+    </details>
+
+    <!-- FAQ 7 -->
+    <details class="group border-b border-neutral-300 pb-4">
+      <summary class="flex justify-between items-center cursor-pointer text-black text-lg font-sans font-semibold">
+        7. How do you handle larger requests?
+        <svg class="w-5 h-5 transform transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </summary>
+      <div class="mt-4 text-sm font-sans text-neutral-700 leading-relaxed space-y-3">
+        <p>Larger requests are broken down on Designjoy's end. This applies to full-scale website or mobile app designs, UI/UX work, etc.</p>
+        <p>You should expect to receive a reasonable amount of work every 24–48 hours until the entire request is completed.</p>
+      </div>
+    </details>
+
+    <!-- FAQ 8 -->
+    <details class="group border-b border-neutral-300 pb-4">
+      <summary class="flex justify-between items-center cursor-pointer text-black text-lg font-sans font-semibold">
+        8. What programs do you design in?
+        <svg class="w-5 h-5 transform transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </summary>
+      <p class="mt-4 text-sm font-sans text-neutral-700 leading-relaxed">
+        We handle most requests with Adobe Creative Suite and Figma.
+      </p>
+    </details>
+
+    <!-- FAQ 9 -->
+    <details class="group border-b border-neutral-300 pb-4">
+      <summary class="flex justify-between items-center cursor-pointer text-black text-lg font-sans font-semibold">
+        9. How will I request designs?
+        <svg class="w-5 h-5 transform transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </summary>
+      <div class="mt-4 text-sm font-sans text-neutral-700 leading-relaxed space-y-3">
+        <p>OnlynneDesign keeps things flexible with Trello</p>
+        <p>You can request designs through Trello cards, Google Docs, wireframes, or even quick videos. If it can be linked or attached in Trello, it works.</p>
+      </div>
+    </details>
+
+    <!-- FAQ 10 -->
+    <details class="group border-b border-neutral-300 pb-4">
+      <summary class="flex justify-between items-center cursor-pointer text-black text-lg font-sans font-semibold">
+        10. What if I don’t like the design?
+        <svg class="w-5 h-5 transform transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </summary>
+      <p class="mt-4 text-sm font-sans text-neutral-700 leading-relaxed">
+        No worries! I'll continue revising the design until you're 100% satisfied.
+      </p>
+    </details>
+
+    <!-- FAQ 11 -->
+    <details class="group border-b border-neutral-300 pb-4">
+      <summary class="flex justify-between items-center cursor-pointer text-black text-lg font-sans font-semibold">
+        11. Are there any requests you don’t support?
+        <svg class="w-5 h-5 transform transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </summary>
+      <div class="mt-4 text-sm font-sans text-neutral-700 leading-relaxed space-y-3">
+        <p>Absolutely. OnlynneDesign does not cover:</p>
+        <ul class="list-disc pl-5">
+          <li>3D modeling</li>
+          <li>Document design (e.g., medical forms, adult or violent content)</li>
+          <li>Complex website development</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- FAQ 12 -->
+    <details class="group border-b border-neutral-300 pb-4">
+      <summary class="flex justify-between items-center cursor-pointer text-black text-lg font-sans font-semibold">
+        12. What if I only have a single request?
+        <svg class="w-5 h-5 transform transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </summary>
+      <p class="mt-4 text-sm font-sans text-neutral-700 leading-relaxed">
+        No problem! Just pause your subscription when you’re finished, then pick it back up whenever you’ve got more design work.
+      </p>
+    </details>
+
+    <!-- FAQ 13 -->
+    <details class="group border-b border-neutral-300 pb-4">
+      <summary class="flex justify-between items-center cursor-pointer text-black text-lg font-sans font-semibold">
+        13. Are there any refunds?
+        <svg class="w-5 h-5 transform transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </summary>
+      <p class="mt-4 text-sm font-sans text-neutral-700 leading-relaxed">
+        Refunds are available only within the first week of service. No refunds will be granted for work that has already been completed.
+      </p>
+    </details>
+
+    <!-- FAQ 14 -->
+    <details class="group border-b border-neutral-300 pb-4">
+      <summary class="flex justify-between items-center cursor-pointer text-black text-lg font-sans font-semibold">
+        14. Can I use OnlynneDesign for just a month?
+        <svg class="w-5 h-5 transform transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </summary>
+      <p class="mt-4 text-sm font-sans text-neutral-700 leading-relaxed">
+        For sure. Whether you need OnlynneDesign for a month or a year, the choice is yours. Just come back whenever you have more design needs.
+      </p>
+    </details>
+</div>
+</section>
+
+ <!-- CLIENTS MARQUEE (full-bleed) -->
+<div class="relative w-screen left-1/2 -translate-x-1/2 border-y-[2px] border-black bg-white">
+  <div class="flex h-[74px]">
+    <!-- 左侧固定标签 -->
+    <div class="shrink-0 flex items-center justify-center w-[240px] px-4 border-r-[2px] border-black">
+      <span class="text-sm sm:text-base font-mono tracking-widest">SEEN AT</span>
+    </div>
+
+    <!-- 右侧滚动区 -->
+    <div class="relative flex-1 overflow-hidden">
+      <div class="clients-scroll h-full flex items-center">
+        <!-- 第一组（把你的 logo 换到下面这组里） -->
+        <ul class="flex items-center gap-12 pr-12">
+          <!-- 用图片 LOGO（推荐透明 PNG/SVG） -->
+          <li><img src="images/clients/客户logo/gwada_logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/Alcon-Logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/ctrip-logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/iconix_logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/中国太平_logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/张江logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/格兰富logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/悦榕庄icon-logo-green-2.svg" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/雅培中国logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/fosun-logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <!-- 也可用文字版（占位示例） -->
+          <!-- <li class="text-xl sm:text-2xl tracking-widest">SEPHORA</li> -->
+        </ul>
+
+        <!-- 复制一份实现无缝衔接（内容需与上面一模一样） -->
+        <ul class="flex items-center gap-12 pr-12" aria-hidden="true">
+          <li><img src="images/clients/客户logo/gwada_logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/Alcon-Logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/ctrip-logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/iconix_logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/中国太平_logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/张江logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/格兰富logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/悦榕庄icon-logo-green-2.svg" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/雅培中国logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+          <li><img src="images/clients/客户logo/fosun-logo.png" alt="" class="h-6 sm:h-7 w-auto opacity-70"/></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 样式：无缝滚动 + 悬停暂停 -->
+<style>
+@keyframes clients-marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* 一半长度（因内容翻倍） */
+}
+.clients-scroll{
+  width:max-content;
+  display:flex;
+  animation: clients-marquee 28s linear infinite;
+  will-change: transform;
+}
+@media (hover:hover) and (pointer:fine){
+  .clients-scroll:hover{ animation-play-state: paused; }
+}
+</style>
+
+
+<!-- Footer -->
+<footer class="bg-gradient-to-r from-[#e8febf] via-[#cbbfed] via-[#cbbccd] to-[#ebd1c5]
+              bg-[length:200%_200%] animate-liquid border-black"
+        style="font-family: 'Nunito Sans', sans-serif;">
+  <div class="mx-auto max-w-7xl px-6 py-12 md:py-14">
+
+    <!-- 三栏 -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 items-start">
+      <!-- 左：Explore -->
+      <div>
+        <h3 class="pt-2 md:pt-4 text-lg md:text-xl tracking-[0.35em] uppercase mb-6 text-black font-bold">
+          Explore
+        </h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-black/70">
+          <li><a href="index.html" class="hover:text-black hover:underline underline-offset-4">HOME</a></li>
+          <li><a href="about.html" class="hover:text-black hover:underline underline-offset-4">ABOUT</a></li>
+          <li><a href="portfolio.html" class="hover:text-black hover:underline underline-offset-4">PORTFOLIO</a></li>
+          <li><a href="services.html" class="hover:text-black hover:underline underline-offset-4">SERVICES</a></li>
+          <li><a href="babydevlynne/" class="hover:text-black hover:underline underline-offset-4">MY WEB DEV PORTFOLIO</a></li>
+        </ul>
+      </div>
+
+      <!-- 中：Contact + 社交 -->
+      <div>
+        <h3 class="pt-2 md:pt-4 text-lg md:text-xl tracking-[0.35em] uppercase mb-6 text-black font-bold">
+          Contact
+        </h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-black/70">
+          <li><a href="contact.html" class="hover:text-black hover:underline underline-offset-4">GET IN TOUCH</a></li>
+          <li><a href="privacypolicy.html" class="hover:text-black hover:underline underline-offset-4">PRIVACY POLICY</a></li>
+          <li><a href="accessibilitystatement.html" class="hover:text-black hover:underline underline-offset-4">ACCESSIBILITY STATEMENT</a></li>
+        </ul>
+
+        <!-- 社交 -->
+        <div class="flex items-center gap-4 mt-6">
+          <a href="https://www.instagram.com/0nlynne.design/" target="_blank" rel="noopener" aria-label="Instagram"
+             class="hover:opacity-80 transition">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg"
+                 alt="Instagram" class="w-5 h-5">
+          </a>
+          <a href="https://www.linkedin.com/in/linglinchen/" target="_blank" rel="noopener" aria-label="LinkedIn"
+             class="hover:opacity-80 transition">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg"
+                 alt="LinkedIn" class="w-5 h-5">
+          </a>
+        </div>
+      </div>
+
+      <!-- 右：Logo -->
+      <div class="flex md:justify-end">
+        <div class="text-right">
+          <img src="images/logo.svg" alt="Onlynne Design Logo"
+               class="ml-auto w-32 md:w-40 lg:w-48 h-auto transition-transform duration-300 will-change-transform hover:scale-[1.03] hover:-rotate-1">
+        </div>
+      </div>
+    </div>
+
+    <!-- 版权 -->
+    <div class="mt-10 pt-6 text-center text-[11px] sm:text-xs text-black/75">
+      © 2026 | Made with ♥ by Onlynne Design
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Onlynne Design</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Brawler&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Playfair Display', serif;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    .animate-marquee {
+      display: inline-block;
+      animation: marquee 30s linear infinite;
+    }
+  </style>
+</head>
+
+<body class="bg-white text-black">
+  
+  
+    <!-- Header -->
+    <!-- 顶部容器 -->
+  <div class="relative">
+
+    <!-- Header（固定在黑线条上方，不覆盖 Hero） -->
+    <header class="border-b-[2px] border-black bg-white">
+      <div class="mx-auto max-w-7xl flex items-center justify-between gap-6 px-6 md:px-10 py-3">
+        <!-- 左：Logo -->
+        <a href="index.html" class="shrink-0 inline-flex">
+          <img src="images/logo.svg" alt="Onlynne Design Logo"
+               class="w-[90px] md:w-[110px] h-auto transition duration-300 ease-in-out hover:scale-105 hover:rotate-1">
+        </a>
+
+        <!-- 中：导航 -->
+        <nav class="hidden md:flex items-center gap-8 text-[0.9rem] font-mono">
+          <a href="about.html" class="transition hover:text-gray-600">ABOUT</a>
+          <a href="portfolio.html" class="transition hover:text-gray-600">PORTFOLIO</a>
+          <a href="services.html" class="transition hover:text-gray-600">SERVICES</a>
+          <a href="https://www.etsy.com/" class="transition hover:text-gray-600" target="_blank" rel="noopener">STORE</a>
+        </nav>
+
+        <!-- 右：按钮 -->
+        <a href="contact.html"
+           class="px-5 md:px-6 py-1.5 text-sm font-mono border-[2px] border-black rounded-full bg-[#e8febf] hover:bg-[#cbbfed] transition-all">
+          LET'S TALK
+        </a>
+      </div>
+    </header>
+
+    <!-- Hero 大图（紧随其后，确保黑线条可见且不被遮挡） -->
+    <img src="images/contact-hero.png" alt="Contact Hero" class="w-full h-auto block select-none">
+
+  </div>
+
+  <!-- Straight Scrolling Bar -->
+<div class="bg-[#e8febf] border-y-[2px] border-black w-full overflow-hidden">
+  <div class="scroll-line text-sm sm:text-base font-mono tracking-wide text-black flex whitespace-nowrap" style="font-family: 'Nunito Sans', sans-serif;">
+    <span class="mx-8">ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶</span>
+    <span class="mx-8">ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶</span>
+    <span class="mx-8">ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶ ONLYNNE DESIGN ✶</span>
+  </div>
+</div>
+
+<style>
+@keyframes scroll-horizontal {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* 一半长度，另一半是复制的内容 */
+}
+.scroll-line {
+  display: flex;
+  width: max-content;
+  animation: scroll-horizontal 20s linear infinite;
+  will-change: transform;
+}
+@media (hover:hover) and (pointer:fine){
+  .scroll-line:hover {
+    animation-play-state: paused; /* 鼠标悬停时暂停 */
+  }
+}
+</style>
+    
+
+
+<section class="px-6 sm:px-12 md:px-20 py-16 bg-white text-black" style="font-family: 'DM Mono', monospace;">
+  <div class="max-w-4xl mx-auto space-y-10">
+    <h2 class="text-[2.5rem] sm:text-[4rem] leading-tight font-bold">
+      <span>Let’s build something</span><br>
+      <em>bold and unforgettable!</em>
+    </h2>
+    <p class="text-base sm:text-lg text-gray-700">Drop your details below — I’ll be in touch soon!</p>
+
+      <div class="container">
+  <form target="_blank" id="contact-form" method="POST" class="space-y-10">
+    
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div class="form-group">
+        <label class="block mb-1">Full Name:</label>
+        <input type="text" name="name" placeholder="Enter your full name" required class="form-control w-full border border-black rounded-full px-4 py-3 placeholder-gray-400" />
+        <small class="text-xs text-gray-500">* This question is required</small>
+      </div>
+
+      <div class="form-group">
+        <label class="block mb-1">Email Address:</label>
+        <input type="email" name="email" placeholder="Enter your email address" required class="form-control w-full border border-black rounded-full px-4 py-3 placeholder-gray-400" />
+        <small class="text-xs text-gray-500">* This question is required</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="block mb-1">Business/Brand Name:</label>
+      <input type="text" name="business" class="w-full border border-black rounded-full px-4 py-3" />
+      <small class="text-xs text-gray-500">* This question is required</small>
+    </div>
+
+    <div class="form-group">
+      <label class="block mb-1">Could you share a bit about your business? :)</label>
+      <textarea name="businessDetails" placeholder="What does your business do? (Feel free to share your story, values, or audience!)" class="w-full border border-black rounded-3xl px-4 py-3 min-h-[130px]"></textarea>
+      <small class="text-xs text-gray-500">* This question is required</small>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div class="form-group">
+        <label class="block mb-1">Country:</label>
+        <input type="text" name="country" placeholder="e.g., United States, China, UK..." class="w-full border border-black rounded-full px-4 py-3" />
+        <small class="text-xs text-gray-500">* This question is required</small>
+      </div>
+
+      <div class="form-group">
+        <label class="block mb-1">Preferred communication language:</label>
+        <select name="language" class="w-full border border-black rounded-full px-4 py-3">
+          <option>Select a language</option>
+          <option>English</option>
+          <option>中文 / Chinese</option>
+          <option>American Sign language</option>
+          <option>International Sign language</option>
+          <option>Other</option>
+        </select>
+        <small class="text-xs text-gray-500">* This question is required</small>
+      </div>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div class="form-group">
+        <label class="block mb-1">What service are you interested in?</label>
+        <select name="service" class="w-full border border-black rounded-full px-4 py-3">
+          <option>Select an answer</option>
+          <optgroup label="Logos & Branding">
+            <option>Essential Brand Kit</option>
+            <option>Solo Design Services</option>
+            <option>One-Off Design Support</option>
+          </optgroup>
+          <optgroup label="Website Design & Build">
+            <option>Simple Website</option>
+            <option>Basic Website</option>
+            <option>Custom Website</option>
+          </optgroup>
+          <optgroup label="Other">
+            <option>Not sure / I'd like to discuss custom needs</option>
+          </optgroup>
+        </select>
+        <small class="text-xs text-gray-500">* This question is required</small>
+      </div>
+
+      <div class="form-group">
+        <label class="block mb-1">What's your budget range?</label>
+        <select name="budget" class="w-full border border-black rounded-full px-4 py-3">
+          <option>Select a range</option>
+          <option>Under $500</option>
+          <option>$500 – $1,000</option>
+          <option>$1,000 – $2,000</option>
+          <option>$2,000 – $5,000</option>
+          <option>$5,000+</option>
+        </select>
+        <small class="text-xs text-gray-500">* This question is required</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="block mb-1">Tell me where you are in your journey:</label>
+      <textarea name="journey" placeholder="Just starting out, rebranding, ready to launch?" class="w-full border border-black rounded-3xl px-4 py-3 min-h-[130px]"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label class="block mb-1">How did you hear about me?</label>
+      <select name="referral" class="w-full border border-black rounded-full px-4 py-3">
+        <option>Select an answer</option>
+        <option>Referral</option>
+        <option>OnlynneDesign Website</option>
+        <option>Instagram</option>
+        <option>Facebook</option>
+        <option>Google</option>
+        <option>Pinterest</option>
+        <option>Other</option>
+      </select>
+      <small class="text-xs text-gray-500">* This question is required</small>
+    </div>
+
+    <div class="form-group">
+      <label class="block mb-1">What makes you excited to work with me?</label>
+      <textarea name="excitement" placeholder="Maybe it’s my design style, communication vibe, or something you’ve seen in my portfolio…" class="w-full border border-black rounded-3xl px-4 py-3 min-h-[130px]"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label class="block mb-1">Anything else you'd like to share?</label>
+      <textarea name="additionalInfo" class="w-full border border-black rounded-3xl px-4 py-3 min-h-[130px]"></textarea>
+    </div>
+
+    <div class="text-right">
+      <button type="submit" class="bg-violet-600 hover:bg-violet-700 text-white font-mono text-sm py-2 px-6 rounded-full">SUBMIT</button>
+    </div>
+  </form>
+</div>
+
+<script>
+    // JavaScript to set the form action dynamically for security
+    var user = "onlynnedesign";
+    var domain = "gmail.com";
+    var fullEmail = user + '@' + domain;
+
+    // Set the action of the form to FormSubmit
+    document.getElementById('contact-form').setAttribute('action', 'https://formsubmit.co/' + fullEmail);
+</script>
+  </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="bg-gradient-to-r from-[#e8febf] via-[#cbbfed] via-[#cbbccd] to-[#ebd1c5]
+              bg-[length:200%_200%] animate-liquid border-black"
+        style="font-family: 'Nunito Sans', sans-serif;">
+  <div class="mx-auto max-w-7xl px-6 py-12 md:py-14">
+
+    <!-- 三栏 -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 items-start">
+      <!-- 左：Explore -->
+      <div>
+        <h3 class="pt-2 md:pt-4 text-lg md:text-xl tracking-[0.35em] uppercase mb-6 text-black font-bold">
+          Explore
+        </h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-black/70">
+          <li><a href="index.html" class="hover:text-black hover:underline underline-offset-4">HOME</a></li>
+          <li><a href="about.html" class="hover:text-black hover:underline underline-offset-4">ABOUT</a></li>
+          <li><a href="portfolio.html" class="hover:text-black hover:underline underline-offset-4">PORTFOLIO</a></li>
+          <li><a href="services.html" class="hover:text-black hover:underline underline-offset-4">SERVICES</a></li>
+          <li><a href="babydevlynne/" class="hover:text-black hover:underline underline-offset-4">MY WEB DEV PORTFOLIO</a></li>
+        </ul>
+      </div>
+
+      <!-- 中：Contact + 社交 -->
+      <div>
+        <h3 class="pt-2 md:pt-4 text-lg md:text-xl tracking-[0.35em] uppercase mb-6 text-black font-bold">
+          Contact
+        </h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-black/70">
+          <li><a href="contact.html" class="hover:text-black hover:underline underline-offset-4">GET IN TOUCH</a></li>
+          <li><a href="privacypolicy.html" class="hover:text-black hover:underline underline-offset-4">PRIVACY POLICY</a></li>
+          <li><a href="accessibilitystatement.html" class="hover:text-black hover:underline underline-offset-4">ACCESSIBILITY STATEMENT</a></li>
+        </ul>
+
+        <!-- 社交 -->
+        <div class="flex items-center gap-4 mt-6">
+          <a href="https://www.instagram.com/0nlynne.design/" target="_blank" rel="noopener" aria-label="Instagram"
+             class="hover:opacity-80 transition">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg"
+                 alt="Instagram" class="w-5 h-5">
+          </a>
+          <a href="https://www.linkedin.com/in/linglinchen/" target="_blank" rel="noopener" aria-label="LinkedIn"
+             class="hover:opacity-80 transition">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg"
+                 alt="LinkedIn" class="w-5 h-5">
+          </a>
+        </div>
+      </div>
+
+      <!-- 右：Logo -->
+      <div class="flex md:justify-end">
+        <div class="text-right">
+          <img src="images/logo.svg" alt="Onlynne Design Logo"
+               class="ml-auto w-32 md:w-40 lg:w-48 h-auto transition-transform duration-300 will-change-transform hover:scale-[1.03] hover:-rotate-1">
+        </div>
+      </div>
+    </div>
+
+    <!-- 版权 -->
+    <div class="mt-10 pt-6 text-center text-[11px] sm:text-xs text-black/75">
+      © 2026 | Made with ♥ by Onlynne Design
+    </div>
+  </div>
+</footer>
+</body>
+</html>
