@@ -155,6 +155,64 @@
     transition: max-height 500ms ease-in-out;
     will-change: max-height;
   }
+
+  /* 全局基础样式（确保父容器定位正确） */
+  #featured [data-accordion-toggle],
+  #deafart [data-accordion-toggle],
+  #codedworks [data-accordion-toggle] {
+    position: relative;
+    display: block;
+  }
+
+  #featured .pointer-events-none,
+  #deafart .pointer-events-none,
+  #codedworks .pointer-events-none {
+    height: 100%; /* 确保绝对定位容器占满按钮高度 */
+  }
+
+  /* ========== 手机端布局修复 ========== */
+  @media screen and (max-width: 767px) {
+
+    /* 调整父容器的flex布局，确保文字容器能获取剩余高度 */
+    #featured .flex-col,
+    #deafart .flex-col,
+    #codedworks .flex-col {
+      display: flex;
+      flex-direction: column;
+      height: 100%; /* 占满上层容器高度 */
+      /*background: coral;*/
+    }
+
+    /* 确保按钮高度由背景图决定，且内部元素自适应 */
+    #featured [data-accordion-toggle],
+    #deafart [data-accordion-toggle],
+    #codedworks [data-accordion-toggle] {
+      height: auto;
+    }
+
+    /* 文字容器：占满剩余高度 + 溢出隐藏 + 多行省略 */
+    .text-container {
+      /* 关键：使用flex布局让容器占满剩余高度 */
+      flex: 1;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+      margin: 0;
+    }
+
+    /* 文本容器样式 */
+    .text-container p {
+      margin: 0;
+      display: block;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .mobile-hidden {
+      display: none;
+    }
+  }
+
 </style>
 
 <div class="relative z-0 mx-auto w-full max-w-[1280px] px-6 lg:px-10" data-accordion-root>
@@ -167,20 +225,25 @@
       <div class="pointer-events-none absolute inset-0 z-10 px-[clamp(20px,5vw,56px)] py-[clamp(26px,6vw,64px)]
                   flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
         <div class="flex-1 max-w-[600px] lg:mt-[4%] font-sans flex flex-col self-start">
-          <h2 class="mb-6 text-[clamp(40px,6.2vw,88px)] leading-[1] font-black tracking-tight">Featured <br>projects</h2>
-          <p class="mb-8 text-[clamp(16px,1.4vw,22px)] leading-[1.75] max-w-[56ch]">
-            A showcase of my most impactful design work. Each project highlights problem-solving
-            through creativity, accessibility, and storytelling, reflecting both craft and purpose.
-          </p>
+          <h2 class="mb-6 text-[clamp(30px,6.2vw,88px)] leading-[1] font-black tracking-tight">Featured <br>projects</h2>
+
+          <!-- new container  -->
+          <div class="text-container mb-1">
+            <p class="mb-8 text-[clamp(16px,1.4vw,22px)] leading-[1.75] max-w-[56ch]">
+              A showcase of my most impactful design work. Each project highlights problem-solving
+              through creativity, accessibility, and storytelling, reflecting both craft and purpose.
+            </p>
+          </div>
+
           <span class="mt-auto inline-flex items-center justify-center gap-3 w-[400px] px-6 py-3 border-2 border-black bg-[#e8febf]
-                       text-black font-mono text-[clamp(14px,1.2vw,18px)] transition group-hover:bg-black group-hover:text-white select-none">
+                       text-black font-mono text-[clamp(14px,1.2vw,18px)] transition group-hover:bg-black group-hover:text-white select-none mobile-hidden ">
             LEARN MORE
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
               <path d="M6 18L18 6M9 6h9v9" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </div>
-        <div class="flex-shrink-0 w-auto h-auto lg:h-[78%] self-center">
+        <div class="flex-shrink-0 w-auto h-auto lg:h-[78%] self-center mobile-hidden ">
           <img src="images/portfolio/文件夹_cover-featured projects.png" alt="Featured Projects Cover"
                class="h-full w-auto object-contain block select-none pointer-events-none" loading="lazy" />
         </div>
@@ -203,8 +266,8 @@
                    class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105 group-hover:opacity-90">
             </div>
             <div class="mt-3">
-              <h3 class="font-[Montserrat] font-semibold tracking-wide text-lg group-hover:text-gray-700 transition-colors">Body Concept Pilates</h3>
-              <p class="font-[Nunito_Sans] text-sm text-gray-500 uppercase tracking-wider mt-1">branding | sports</p>
+              <h3 class="font-[Montserrat] font-semibold tracking-wide text-lg group-hover:text-gray-700 transition-colors">Pizza Napoletana Chili sauce jam</h3>
+              <p class="font-[Nunito_Sans] text-sm text-gray-500 uppercase tracking-wider mt-1">branding | food</p>
             </div>
           </a>
 
@@ -215,8 +278,8 @@
                    class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105 group-hover:opacity-90">
             </div>
             <div class="mt-3">
-              <h3 class="font-[Montserrat] font-semibold tracking-wide text-lg group-hover:text-gray-700 transition-colors">snow51</h3>
-              <p class="font-[Nunito_Sans] text-sm text-gray-500 uppercase tracking-wider mt-1">branding | sports</p>
+              <h3 class="font-[Montserrat] font-semibold tracking-wide text-lg group-hover:text-gray-700 transition-colors">Matcha Coffee</h3>
+              <p class="font-[Nunito_Sans] text-sm text-gray-500 uppercase tracking-wider mt-1">branding | coffee</p>
             </div>
           </a>
 
@@ -228,7 +291,7 @@
             </div>
             <div class="mt-3">
               <h3 class="font-[Montserrat] font-semibold tracking-wide text-lg group-hover:text-gray-700 transition-colors">iconix</h3>
-              <p class="font-[Nunito_Sans] text-sm text-gray-500 uppercase tracking-wider mt-1">branding | fashion</p>
+              <p class="font-[Nunito_Sans] text-sm text-gray-500 uppercase tracking-wider mt-1">branding | bakery</p>
             </div>
           </a>
 
@@ -239,8 +302,8 @@
                    class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105 group-hover:opacity-90">
             </div>
             <div class="mt-3">
-              <h3 class="font-[Montserrat] font-semibold tracking-wide text-lg group-hover:text-gray-700 transition-colors">YISYLIFE</h3>
-              <p class="font-[Nunito_Sans] text-sm text-gray-500 uppercase tracking-wider mt-1">branding+packaging | restaurant</p>
+              <h3 class="font-[Montserrat] font-semibold tracking-wide text-lg group-hover:text-gray-700 transition-colors">MAEK COFFEE</h3>
+              <p class="font-[Nunito_Sans] text-sm text-gray-500 uppercase tracking-wider mt-1">branding+packaging | Coffee</p>
             </div>
           </a>
 
@@ -290,20 +353,25 @@
       <div class="pointer-events-none absolute inset-0 z-10 px-[clamp(20px,5vw,56px)] py-[clamp(26px,6vw,64px)]
                   flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
         <div class="flex-1 max-w-[600px] lg:mt-[4%] font-sans flex flex-col self-start">
-          <h2 class="mb-6 text-[clamp(40px,6.2vw,88px)] leading-[1] font-black tracking-tight">Deaf Art</h2>
-          <p class="mb-8 text-[clamp(16px,1.4vw,22px)] leading-[1.75] max-w-[56ch]">
-            Visual stories rooted in Deaf culture. My illustrations celebrate sign language, identity,
-            and community, bridging cultures with expressive and inclusive art.
-          </p>
+          <h2 class="mb-6 text-[clamp(30px,6.2vw,88px)] leading-[1] font-black tracking-tight">Deaf Art</h2>
+
+          <!-- new container -->
+          <div class="text-container mb-1">
+            <p class="mb-8 text-[clamp(16px,1.4vw,22px)] leading-[1.75] max-w-[56ch]">
+              Visual stories rooted in Deaf culture. My illustrations celebrate sign language, identity,
+              and community, bridging cultures with expressive and inclusive art.
+            </p>
+          </div>
+
           <span class="mt-auto inline-flex items-center justify-center gap-3 w-[400px] px-6 py-3 border-2 border-black bg-[#e8febf]
-                       text-black font-mono text-[clamp(14px,1.2vw,18px)] transition group-hover:bg-black group-hover:text-white select-none">
+                       text-black font-mono text-[clamp(14px,1.2vw,18px)] transition group-hover:bg-black group-hover:text-white select-none mobile-hidden ">
             LEARN MORE
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
               <path d="M6 18L18 6M9 6h9v9" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </div>
-        <div class="flex-shrink-0 w-auto h-auto lg:h-[78%] self-center">
+        <div class="flex-shrink-0 w-auto h-auto lg:h-[78%] self-center mobile-hidden ">
           <img src="images/portfolio/文件夹_cover-deafart.png" alt="Deaf Art Cover"
                class="h-full w-auto object-contain block select-none pointer-events-none" loading="lazy" />
         </div>
@@ -374,20 +442,25 @@
       <div class="pointer-events-none absolute inset-0 z-10 px-[clamp(20px,5vw,56px)] py-[clamp(26px,6vw,64px)]
                   flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
         <div class="flex-1 max-w-[600px] lg:mt-[4%] font-sans flex flex-col self-start">
-          <h2 class="mb-6 text-[clamp(40px,6.2vw,88px)] leading-[1] font-black tracking-tight">Coded works</h2>
-          <p class="mb-8 text-[clamp(16px,1.4vw,22px)] leading-[1.75] max-w-[56ch]">
-            Where design meets code. From interactive websites to creative prototypes, I bring ideas
-            to life through clean, responsive, and accessible front-end development.
-          </p>
+          <h2 class="mb-6 text-[clamp(30px,6.2vw,88px)] leading-[1] font-black tracking-tight">Coded works</h2>
+
+          <!-- new container -->
+          <div class="text-container mb-1">
+            <p class="mb-8 text-[clamp(16px,1.4vw,22px)] leading-[1.75] max-w-[56ch]">
+              Where design meets code. From interactive websites to creative prototypes, I bring ideas
+              to life through clean, responsive, and accessible front-end development.
+            </p>
+          </div>
+
           <span class="mt-auto inline-flex items-center justify-center gap-3 w-[400px] px-6 py-3 border-2 border-black bg-[#cbbfed]
-                       text-black font-mono text-[clamp(14px,1.2vw,18px)] transition group-hover:bg-black group-hover:text-white select-none">
+                       text-black font-mono text-[clamp(14px,1.2vw,18px)] transition group-hover:bg-black group-hover:text-white select-none mobile-hidden ">
             LEARN MORE
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
               <path d="M6 18L18 6M9 6h9v9" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </div>
-        <div class="flex-shrink-0 w-auto h-auto lg:h-[78%] self-center">
+        <div class="flex-shrink-0 w-auto h-auto lg:h-[78%] self-center mobile-hidden ">
           <img src="images/portfolio/文件夹_cover-codedworks.png" alt="Coded Works Cover"
                class="h-full w-auto object-contain block select-none pointer-events-none" loading="lazy" />
         </div>
@@ -450,30 +523,59 @@
     });
   }
 
-  function toggle(section) {
-    const btn = section.querySelector('[data-accordion-toggle]');
-    const panel = section.querySelector('.accordion-panel');
-    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    function toggle(section) {
+      const btn = section.querySelector('[data-accordion-toggle]');
+      const panel = section.querySelector('.accordion-panel');
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
 
-    if (expanded) {
-      panel.style.maxHeight = '0px'; // 关闭面板
-      btn.setAttribute('aria-expanded', 'false');
-      sections.forEach(sec => {
-        sec.classList.remove('amend-y');
-      });
-    } else {
-      closeOthers(panel); // 关闭其他面板
-      panel.style.maxHeight = panel.scrollHeight + 'px'; // 展开当前面板
-      btn.setAttribute('aria-expanded', 'true');
-      amendSectionY(section);
+      if (expanded) {
+        panel.style.maxHeight = '0px'; // 关闭面板
+        btn.setAttribute('aria-expanded', 'false');
+        sections.forEach(sec => {
+          sec.classList.remove('amend-y');
+        });
+        // 等待面板收起动画完成后再应用文字限制
+        let timeoutId = null;
+        // 已处理的标志，防止重复执行
+        let isHandled = false;
 
-      const fix = () => panel.style.maxHeight = panel.scrollHeight + 'px';
-      setTimeout(fix, 50);
-      panel.querySelectorAll('img').forEach(img => img.addEventListener('load', fix, { once: true }));
+        const handleTransitionEnd = (e) => {
+          if (e.target === panel && e.propertyName === 'max-height' && !isHandled) {
+            isHandled = true;
+            truncateText(); // 动画完成后再应用文字限制
+            panel.removeEventListener('transitionend', handleTransitionEnd);
+            if (timeoutId) {
+              clearTimeout(timeoutId); // 清除备用延迟，避免重复执行
+            }
+          }
+        };
+        panel.addEventListener('transitionend', handleTransitionEnd);
+        // 如果动画没有触发（比如已经是关闭状态），设置一个备用延迟
+        timeoutId = setTimeout(() => {
+          if (panel.style.maxHeight === '0px' && !isHandled) {
+            isHandled = true;
+            truncateText();
+            panel.removeEventListener('transitionend', handleTransitionEnd);
+          }
+        }, 600); // 500ms 动画 + 100ms 缓冲
+      } else {
+        closeOthers(panel); // 关闭其他面板
+        panel.style.maxHeight = panel.scrollHeight + 'px'; // 展开当前面板
+        btn.setAttribute('aria-expanded', 'true');
+        amendSectionY(section);
+        // 展开时取消文字限制，显示全部内容
+        truncateText();
+
+        const fix = () => {
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+          truncateText(); // 图片加载后也更新文字显示
+        };
+        fix();
+        panel.querySelectorAll('img').forEach(img => img.addEventListener('load', fix, { once: true }));
+      }
     }
-  }
 
-  function amendSectionY(section, remove = false) {
+    function amendSectionY(section, remove = false) {
     const currentIndex = sections.indexOf(section);
 
     if (currentIndex === sections.length - 1) {
@@ -490,25 +592,48 @@
     }
   }
 
-  sections.forEach(section => {
-    const toggleBtn = section.querySelector('[data-accordion-toggle]');
-    toggleBtn.addEventListener('click', (e) => {
-      if (e.target.closest('a')) {
-        return; // 如果点击的是链接，直接返回，不执行 toggle
-      }
-      toggle(section); // 切换当前面板
-    });
-
-    const closeBtn = section.querySelector('[data-accordion-close]');
-    if (closeBtn) {
-      closeBtn.addEventListener('click', () => {
-        const panel = section.querySelector('.accordion-panel');
-        panel.style.maxHeight = '0px'; // 关闭面板
-        toggleBtn.setAttribute('aria-expanded', 'false');
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    sections.forEach(section => {
+      const toggleBtn = section.querySelector('[data-accordion-toggle]');
+      toggleBtn.addEventListener('click', (e) => {
+        if (e.target.closest('a')) {
+          return; // 如果点击的是链接，直接返回，不执行 toggle
+        }
+        toggle(section); // 切换当前面板
       });
-    }
-  });
+
+      const closeBtn = section.querySelector('[data-accordion-close]');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+          const panel = section.querySelector('.accordion-panel');
+          panel.style.maxHeight = '0px'; // 关闭面板
+          toggleBtn.setAttribute('aria-expanded', 'false');
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // 等待面板收起动画完成后再应用文字限制
+          let timeoutId = null;
+          let isHandled = false;
+
+          const handleTransitionEnd = (e) => {
+            if (e.target === panel && e.propertyName === 'max-height' && !isHandled) {
+              isHandled = true;
+              truncateText(); // 动画完成后再应用文字限制
+              panel.removeEventListener('transitionend', handleTransitionEnd);
+              if (timeoutId) {
+                clearTimeout(timeoutId); // 清除备用延迟，避免重复执行
+              }
+            }
+          };
+          panel.addEventListener('transitionend', handleTransitionEnd);
+          // 如果动画没有触发，设置一个备用延迟
+          timeoutId = setTimeout(() => {
+            if (panel.style.maxHeight === '0px' && !isHandled) {
+              isHandled = true;
+              truncateText();
+              panel.removeEventListener('transitionend', handleTransitionEnd);
+            }
+          }, 600); // 500ms 动画 + 100ms 缓冲
+        });
+      }
+    })
 
   // 处理 VIEW MORE 链接
   const viewMoreLinks = document.querySelectorAll('.mt-2 a');
@@ -528,7 +653,267 @@
     const target = root.querySelector('#' + hash)?.closest('[data-accordion]');
     if (target) setTimeout(() => toggle(target), 200);
   }
-})();
+
+    // 动态设置移动端文件夹重叠的 margin-top
+    // ========== 可配置变量 ==========
+    const GAP_FIX_CONFIG = {
+      // 小屏调整值（429px以下）
+      minAdjustment: 3,
+      // 大屏调整值（767px）
+      maxAdjustment: 20,
+      // 线性增加的起始宽度
+      startWidth: 429,
+      // 线性增加的结束宽度
+      endWidth: 767
+    };
+
+    function setMobileGapFix() {
+      const width = window.innerWidth;
+      const deafart = document.getElementById('deafart');
+      const codedworks = document.getElementById('codedworks');
+
+      if (!deafart || !codedworks) return;
+
+      // 仅在移动端（≤767px）应用
+      if (width > GAP_FIX_CONFIG.endWidth) {
+        // 桌面端清除内联样式，恢复CSS默认值
+        deafart.style.marginTop = '';
+        codedworks.style.marginTop = '';
+        return;
+      }
+
+      // 计算基础负边距（clamp值）
+      const clampValue = Math.max(56, Math.min(140, width * 0.07));
+
+      // 计算调整值
+      let adjustment = GAP_FIX_CONFIG.minAdjustment; // 默认调整值（429px以下）
+
+      if (width >= GAP_FIX_CONFIG.startWidth && width <= GAP_FIX_CONFIG.endWidth) {
+        // 线性增加：从 minAdjustment 到 maxAdjustment
+        const widthRange = GAP_FIX_CONFIG.endWidth - GAP_FIX_CONFIG.startWidth;
+        const adjustmentRange = GAP_FIX_CONFIG.maxAdjustment - GAP_FIX_CONFIG.minAdjustment;
+        const progress = (width - GAP_FIX_CONFIG.startWidth) / widthRange;
+        adjustment = GAP_FIX_CONFIG.minAdjustment + progress * adjustmentRange;
+      }
+
+      // 设置 margin-top
+      const marginTop = -(clampValue + adjustment);
+      deafart.style.marginTop = `${marginTop}px`;
+      codedworks.style.marginTop = `${marginTop}px`;
+    }
+
+    // 初始化
+    setMobileGapFix();
+
+    // 窗口大小变化时更新
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(setMobileGapFix, 150);
+    });
+
+    function truncateText() {
+      // 仅在移动端应用文本截断
+      const isMobile = window.innerWidth <= 767;
+      if (!isMobile) {
+        return;
+      }
+
+      const containers = document.querySelectorAll('.text-container');
+      containers.forEach(container => {
+        const p = container.querySelector('p');
+        if (!p) return;
+
+        // 检查对应的手风琴是否展开
+        const section = container.closest('[data-accordion]');
+        const btn = section?.querySelector('[data-accordion-toggle]');
+        const panel = section?.querySelector('.accordion-panel');
+        const isExpanded = btn?.getAttribute('aria-expanded') === 'true';
+
+        // 获取包含文字容器的 flex-col 父容器
+        const parentDiv = container.closest('.flex-col');
+
+        if (isExpanded) {
+          // 展开状态：恢复原始文本
+          const originalText = p.getAttribute('data-original-text');
+          if (originalText !== null) {
+            p.textContent = originalText;
+            p.removeAttribute('data-original-text');
+          }
+
+          // 容器样式：允许内容溢出显示
+          container.style.overflow = 'visible';
+          container.style.height = 'auto';
+          container.style.flex = 'none';
+          container.style.marginBottom = '';
+
+          // 段落样式：显示全部文字
+          p.style.height = 'auto';
+          p.style.overflow = 'visible';
+          p.style.marginBottom = '0';
+
+          // 调整 flex-col 父容器
+          if (parentDiv) {
+            parentDiv.style.minHeight = 'auto';
+          }
+
+          // 通过增加展开面板内部的 padding-top 来避免与文字重叠
+          if (panel) {
+            const panelContent = panel.querySelector('.lip-fix');
+            if (panelContent) {
+              setTimeout(() => {
+                const btn = section?.querySelector('[data-accordion-toggle]');
+                const containerRect = container.getBoundingClientRect();
+                const btnRect = btn?.getBoundingClientRect();
+                const containerBottom = containerRect.bottom;
+                const btnBottom = btnRect ? btnRect.bottom : containerBottom;
+                const extraSpace = Math.max(containerBottom - btnBottom, 0);
+                const paddingTop = Math.max(extraSpace + 60, 60);
+                panelContent.style.paddingTop = `${paddingTop}px`;
+              }, 1);
+            }
+          }
+        } else {
+          // 收起状态：截断文本
+          // 容器样式：恢复限制
+          container.style.overflow = 'hidden';
+          container.style.height = '100%';
+          container.style.flex = '1';
+          container.style.marginBottom = '';
+
+          // 恢复 flex-col 父容器样式
+          if (parentDiv) {
+            parentDiv.style.minHeight = '';
+          }
+
+          // 恢复展开面板内部的 padding-top
+          if (panel) {
+            const panelContent = panel.querySelector('.lip-fix');
+            if (panelContent) {
+              panelContent.style.paddingTop = '';
+            }
+          }
+
+          // 保存原始文本（如果还没有保存）
+          if (!p.getAttribute('data-original-text')) {
+            p.setAttribute('data-original-text', p.textContent);
+          }
+
+          // 段落样式：应用高度限制
+          p.style.height = '100%';
+          p.style.overflow = 'hidden';
+
+          // 使用 requestAnimationFrame 确保布局完成后再截断
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              const originalText = p.getAttribute('data-original-text') || p.textContent;
+              const containerHeight = container.offsetHeight || container.getBoundingClientRect().height || container.clientHeight;
+              
+              if (!containerHeight || containerHeight <= 0) {
+                return;
+              }
+
+              // 先恢复完整文本，测量行高
+              p.textContent = originalText;
+              p.style.height = 'auto';
+              p.style.overflow = 'visible';
+              
+              // 强制重排
+              void p.offsetHeight;
+              
+              const computedStyle = window.getComputedStyle(p);
+              let lineHeight = parseFloat(computedStyle.lineHeight);
+              
+              // 如果 lineHeight 无效，通过测量单行来计算
+              if (!lineHeight || isNaN(lineHeight) || lineHeight <= 0) {
+                const temp = document.createElement('span');
+                temp.style.visibility = 'hidden';
+                temp.style.position = 'absolute';
+                temp.style.top = '-9999px';
+                temp.style.fontSize = computedStyle.fontSize;
+                temp.style.fontFamily = computedStyle.fontFamily;
+                temp.style.lineHeight = computedStyle.lineHeight;
+                temp.style.fontWeight = computedStyle.fontWeight;
+                temp.style.letterSpacing = computedStyle.letterSpacing;
+                temp.textContent = 'M';
+                document.body.appendChild(temp);
+                lineHeight = temp.offsetHeight;
+                document.body.removeChild(temp);
+              }
+
+              if (lineHeight && lineHeight > 0) {
+                // 计算最大行数（保守计算，减去缓冲）
+                const buffer = lineHeight * 0.3;
+                const maxLines = Math.max(1, Math.floor((containerHeight - buffer) / lineHeight));
+                
+                // 使用二分查找找到合适的文本长度
+                let left = 0;
+                let right = originalText.length;
+                let bestLength = 0;
+                
+                while (left <= right) {
+                  const mid = Math.floor((left + right) / 2);
+                  const testText = originalText.substring(0, mid) + (mid < originalText.length ? '...' : '');
+                  
+                  p.textContent = testText;
+                  p.style.height = 'auto';
+                  void p.offsetHeight; // 强制重排
+                  
+                  const pHeight = p.getBoundingClientRect().height || p.offsetHeight;
+                  const actualLines = Math.ceil(pHeight / lineHeight);
+                  
+                  if (actualLines <= maxLines && mid < originalText.length) {
+                    bestLength = mid;
+                    left = mid + 1;
+                  } else {
+                    right = mid - 1;
+                  }
+                }
+                
+                // 应用截断后的文本
+                if (bestLength > 0 && bestLength < originalText.length) {
+                  p.textContent = originalText.substring(0, bestLength) + '...';
+                } else {
+                  p.textContent = originalText;
+                }
+                
+                // 恢复样式限制
+                p.style.height = '100%';
+                p.style.overflow = 'hidden';
+              }
+            });
+          });
+        }
+      });
+    }
+
+
+    // 初始化 + 窗口变化时更新
+    const initTruncate = () => {
+      setTimeout(() => {
+        requestAnimationFrame(() => {
+          truncateText();
+        });
+      }, 100);
+    };
+    
+    window.onload = initTruncate;
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initTruncate);
+    } else {
+      initTruncate();
+    }
+    
+    let truncateResizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(truncateResizeTimer);
+      truncateResizeTimer = setTimeout(() => {
+        requestAnimationFrame(() => {
+          truncateText();
+        });
+      }, 150);
+    });
+  })();
 </script>
 <!-- ======= /Portfolio Main ======= -->
 
