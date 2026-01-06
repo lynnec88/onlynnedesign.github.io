@@ -37,38 +37,38 @@
 
 <body class="bg-white text-black">
 
-  <!-- 顶部容器 -->
-  <div class="relative">
+<!-- 顶部容器 -->
+<div class="relative">
 
-    <!-- Header（固定在黑线条上方，不覆盖 Hero） -->
-    <header class="border-b-[2px] border-black bg-white">
-      <div class="mx-auto max-w-7xl flex items-center justify-between gap-6 px-6 md:px-10 py-3">
-        <!-- 左：Logo -->
-        <a href="index.html" class="shrink-0 inline-flex">
-          <img src="images/logo.svg" alt="Onlynne Design Logo"
-               class="w-[90px] md:w-[110px] h-auto transition duration-300 ease-in-out hover:scale-105 hover:rotate-1">
-        </a>
+  <!-- Header（固定在黑线条上方，不覆盖 Hero） -->
+  <header class="border-b-[2px] border-black bg-white">
+    <div class="mx-auto max-w-7xl flex items-center justify-between gap-6 px-6 md:px-10 py-3">
+      <!-- 左：Logo -->
+      <a href="index.html" class="shrink-0 inline-flex">
+        <img src="images/logo.svg" alt="Onlynne Design Logo"
+             class="w-[90px] md:w-[110px] h-auto transition duration-300 ease-in-out hover:scale-105 hover:rotate-1">
+      </a>
 
-        <!-- 中：导航 -->
-        <nav class="hidden md:flex items-center gap-8 text-[0.9rem] font-mono">
-          <a href="about.html" class="transition hover:text-gray-600">ABOUT</a>
-          <a href="portfolio.html" class="transition hover:text-gray-600">PORTFOLIO</a>
-          <a href="services.html" class="transition hover:text-gray-600">SERVICES</a>
-          <a href="https://www.etsy.com/shop/LynneDesignStudio" class="transition hover:text-gray-600" target="_blank" rel="noopener">STORE</a>
-        </nav>
+      <!-- 中：导航 -->
+      <nav class="hidden md:flex items-center gap-8 text-[0.9rem] font-mono">
+        <a href="about.html" class="transition hover:text-gray-600">ABOUT</a>
+        <a href="portfolio.html" class="transition hover:text-gray-600">PORTFOLIO</a>
+        <a href="services.html" class="transition hover:text-gray-600">SERVICES</a>
+        <a href="https://www.etsy.com/shop/LynneDesignStudio" class="transition hover:text-gray-600" target="_blank" rel="noopener">STORE</a>
+      </nav>
 
-        <!-- 右：按钮 -->
-        <a href="contact.html"
-           class="px-5 md:px-6 py-1.5 text-sm font-mono border-[2px] border-black rounded-full bg-[#e8febf] hover:bg-[#cbbfed] transition-all">
-          LET'S TALK
-        </a>
-      </div>
-    </header>
+      <!-- 右：按钮 -->
+      <a href="contact.html"
+         class="px-5 md:px-6 py-1.5 text-sm font-mono border-[2px] border-black rounded-full bg-[#e8febf] hover:bg-[#cbbfed] transition-all">
+        LET'S TALK
+      </a>
+    </div>
+  </header>
 
-    <!-- Hero 大图（紧随其后，确保黑线条可见且不被遮挡） -->
-    <img src="images/portfolio-hero.png" alt="Portfolio Hero" class="w-full h-auto block select-none">
+  <!-- Hero 大图（紧随其后，确保黑线条可见且不被遮挡） -->
+  <img src="images/portfolio-hero.png" alt="Portfolio Hero" class="w-full h-auto block select-none">
 
-  </div>
+</div>
 
 <!-- Straight Scrolling Bar -->
 <div class="bg-[#e8febf] border-y-[2px] border-black w-full overflow-hidden mb-10">
@@ -80,21 +80,21 @@
 </div>
 
 <style>
-@keyframes scroll-horizontal {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); } /* 一半长度，另一半是复制的内容 */
-}
-.scroll-line {
-  display: flex;
-  width: max-content;
-  animation: scroll-horizontal 20s linear infinite;
-  will-change: transform;
-}
-@media (hover:hover) and (pointer:fine){
-  .scroll-line:hover {
-    animation-play-state: paused; /* 鼠标悬停时暂停 */
+  @keyframes scroll-horizontal {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* 一半长度，另一半是复制的内容 */
   }
-}
+  .scroll-line {
+    display: flex;
+    width: max-content;
+    animation: scroll-horizontal 20s linear infinite;
+    will-change: transform;
+  }
+  @media (hover:hover) and (pointer:fine){
+    .scroll-line:hover {
+      animation-play-state: paused; /* 鼠标悬停时暂停 */
+    }
+  }
 </style>
 
 <!-- ======= Portfolio Main (stacked folders + accordion) ======= -->
@@ -140,7 +140,7 @@
   }
 
   .amend-y {
-      transform: translateY(-50px);
+    transform: translateY(-50px);
   }
 
   /* 让按钮内部的 <span> 不可点，避免阻挡按钮点击 */
@@ -154,6 +154,8 @@
     max-height: 0;
     transition: max-height 500ms ease-in-out;
     will-change: max-height;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
 
   /* 全局基础样式（确保父容器定位正确） */
@@ -172,7 +174,6 @@
 
   /* ========== 手机端布局修复 ========== */
   @media screen and (max-width: 767px) {
-
     /* 调整父容器的flex布局，确保文字容器能获取剩余高度 */
     #featured .flex-col,
     #deafart .flex-col,
@@ -213,6 +214,27 @@
     }
   }
 
+  /* amend-container padding 将通过 JavaScript 动态设置 */
+
+  .view-more-container {
+    position: absolute;
+    z-index: 10000;
+    left: 3.5rem;
+    display: none; /* 默认隐藏 */
+    flex-wrap: wrap;
+    gap: 1rem;
+    transform: translateY(3px);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  /* 位置补偿将通过 JavaScript 动态应用 */
+
+  .view-more-container.active {
+    display: flex; /* 展开时显示 */
+    opacity: 1;
+  }
+
 </style>
 
 <div class="relative z-0 mx-auto w-full max-w-[1280px] px-6 lg:px-10" data-accordion-root>
@@ -220,7 +242,7 @@
   <!-- ========== SECTION: FEATURED PROJECTS ========== -->
   <section id="featured" class="relative isolate z-30 w-full my-10 overflow-visible rounded-[28px]" data-accordion>
     <button type="button" class="group relative w-full text-left focus:outline-none"
-      data-accordion-toggle aria-expanded="false" aria-controls="panel-featured">
+            data-accordion-toggle aria-expanded="false" aria-controls="panel-featured">
       <img src="images/portfolio/文件夹_粉红.png" alt="" class="w-full h-auto block select-none pointer-events-none" />
       <div class="pointer-events-none absolute inset-0 z-10 px-[clamp(20px,5vw,56px)] py-[clamp(26px,6vw,64px)]
                   flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
@@ -334,11 +356,12 @@
 
         <div class="border-t-2 border-dashed border-black/50 my-8"></div>
 
-        <div class="mt-2 flex flex-wrap gap-4">
+        <div class="mt-2 flex flex-wrap gap-4" style="visibility: hidden">
           <a href="https://dribbble.com/lynnechen1" class="inline-flex items-center justify-center px-5 py-3 border-2 border-black bg-[#e8febf] font-mono hover:bg-black hover:text-white">VIEW MORE</a>
           <button type="button" class="inline-flex items-center justify-center px-5 py-3 border-2 border-black bg-white font-mono hover:bg-black hover:text-white" data-accordion-close>CLOSE</button>
         </div>
 
+        <div class="amend-container" data-amend-container="featured"></div>
         <!-- 兜底覆盖条（可选） -->
         <i class="lip-over" style="background:#ead3c9"></i>
       </div>
@@ -347,8 +370,14 @@
 
   <!-- ========== SECTION: DEAF ART ========== -->
   <section id="deafart" class="relative isolate z-40 w-full -mt-[clamp(56px,7vw,140px)] mb-10 overflow-visible rounded-[28px]" data-accordion>
+    <!-- Featured Projects 的 view-more-container -->
+    <div class="view-more-container" data-for-section="featured">
+      <a href="https://dribbble.com/lynnechen1" class="inline-flex items-center justify-center px-5 py-3 border-2 border-black bg-[#e8febf] font-mono hover:bg-black hover:text-white">VIEW MORE</a>
+      <button type="button" class="inline-flex items-center justify-center px-5 py-3 border-2 border-black bg-white font-mono hover:bg-black hover:text-white" data-accordion-close data-close-section="featured">CLOSE</button>
+    </div>
+
     <button type="button" class="group relative w-full text-left focus:outline-none"
-      data-accordion-toggle aria-expanded="false" aria-controls="panel-deafart">
+            data-accordion-toggle aria-expanded="false" aria-controls="panel-deafart">
       <img src="images/portfolio/文件夹_粉紫.png" alt="" class="w-full h-auto block select-none pointer-events-none" />
       <div class="pointer-events-none absolute inset-0 z-10 px-[clamp(20px,5vw,56px)] py-[clamp(26px,6vw,64px)]
                   flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
@@ -384,50 +413,52 @@
 
         <div class="border-t-2 border-dashed border-black/50 my-8"></div>
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <!-- Poster 1 -->
-        <div class="border-2 border-black bg-white overflow-hidden">
-          <img src="images/deafart/poster1.jpg" alt="Poster 1"
-              class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
-        </div>
+          <!-- Poster 1 -->
+          <div class="border-2 border-black bg-white overflow-hidden">
+            <img src="images/deafart/poster1.jpg" alt="Poster 1"
+                 class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
+          </div>
 
-        <!-- Poster 2 -->
-        <div class="border-2 border-black bg-white overflow-hidden">
-          <img src="images/deafart/poster2.jpg" alt="Poster 2"
-              class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
-        </div>
+          <!-- Poster 2 -->
+          <div class="border-2 border-black bg-white overflow-hidden">
+            <img src="images/deafart/poster2.jpg" alt="Poster 2"
+                 class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
+          </div>
 
-        <!-- Poster 3 -->
-        <div class="border-2 border-black bg-white overflow-hidden">
-          <img src="images/deafart/poster3.jpg" alt="Poster 3"
-              class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
-        </div>
+          <!-- Poster 3 -->
+          <div class="border-2 border-black bg-white overflow-hidden">
+            <img src="images/deafart/poster3.jpg" alt="Poster 3"
+                 class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
+          </div>
 
-        <!-- Poster 4 -->
-        <div class="border-2 border-black bg-white overflow-hidden">
-          <img src="images/deafart/poster4.jpg" alt="Poster 4"
-              class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
-        </div>
+          <!-- Poster 4 -->
+          <div class="border-2 border-black bg-white overflow-hidden">
+            <img src="images/deafart/poster4.jpg" alt="Poster 4"
+                 class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
+          </div>
 
-        <!-- Poster 5 -->
-        <div class="border-2 border-black bg-white overflow-hidden">
-          <img src="images/deafart/poster5.jpg" alt="Poster 5"
-              class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
-        </div>
+          <!-- Poster 5 -->
+          <div class="border-2 border-black bg-white overflow-hidden">
+            <img src="images/deafart/poster5.jpg" alt="Poster 5"
+                 class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
+          </div>
 
-        <!-- Poster 6 -->
-        <div class="border-2 border-black bg-white overflow-hidden">
-          <img src="images/deafart/poster6.jpg" alt="Poster 6"
-              class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
+          <!-- Poster 6 -->
+          <div class="border-2 border-black bg-white overflow-hidden">
+            <img src="images/deafart/poster6.jpg" alt="Poster 6"
+                 class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
+          </div>
         </div>
-      </div>
 
 
         <div class="border-t-2 border-dashed border-black/50 my-8"></div>
 
-        <div class="mt-2 flex flex-wrap gap-4">
+        <div class="mt-2 flex flex-wrap gap-4" style="visibility: hidden">
           <a href="https://www.instagram.com/pehpeh_csl_lab/" class="inline-flex items-center justify-center px-5 py-3 border-2 border-black bg-[#e8febf] font-mono hover:bg-black hover:text-white">VIEW MORE</a>
           <button type="button" class="inline-flex items-center justify-center px-5 py-3 border-2 border-black bg-white font-mono hover:bg-black hover:text-white" data-accordion-close>CLOSE</button>
         </div>
+
+        <div class="amend-container" data-amend-container="deafart"></div>
 
         <i class="lip-over" style="background:#cbbbf0"></i>
       </div>
@@ -436,8 +467,14 @@
 
   <!-- ========== SECTION: CODED WORKS ========== -->
   <section id="codedworks" class="relative isolate z-50 w-full -mt-[clamp(56px,7vw,140px)] mb-10 overflow-visible rounded-[28px]" data-accordion>
+    <!-- Deaf Art 的 view-more-container -->
+    <div class="view-more-container" data-for-section="deafart">
+      <a href="https://www.instagram.com/pehpeh_csl_lab/" class="inline-flex items-center justify-center px-5 py-3 border-2 border-black bg-[#e8febf] font-mono hover:bg-black hover:text-white">VIEW MORE</a>
+      <button type="button" class="inline-flex items-center justify-center px-5 py-3 border-2 border-black bg-white font-mono hover:bg-black hover:text-white" data-accordion-close data-close-section="deafart">CLOSE</button>
+    </div>
+
     <button type="button" class="group relative w-full text-left focus:outline-none"
-      data-accordion-toggle aria-expanded="false" aria-controls="panel-coded">
+            data-accordion-toggle aria-expanded="false" aria-controls="panel-coded">
       <img src="images/portfolio/文件夹_荧光绿.png" alt="" class="w-full h-auto block select-none pointer-events-none" />
       <div class="pointer-events-none absolute inset-0 z-10 px-[clamp(20px,5vw,56px)] py-[clamp(26px,6vw,64px)]
                   flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
@@ -475,7 +512,7 @@
 
         <div class="border-2 border-black bg-white p-6">
           <div class="aspect-[16/9] w-full border-2 border-black mb-4 overflow-hidden">
-          <img src="images/portfolio/sign_mapping.png" alt="ASL Map Project Hero" class="w-full h-full object-cover">
+            <img src="images/portfolio/sign_mapping.png" alt="ASL Map Project Hero" class="w-full h-full object-cover">
           </div>
           <h3 class="text-2xl font-bold mb-2">ASL Map</h3>
           <p class="text-[clamp(14px,1.2vw,18px)] leading-relaxed max-w-[68ch]">
@@ -494,6 +531,8 @@
           <button type="button" class="inline-flex items-center justify-center px-5 py-3 border-2 border-black bg-white font-mono hover:bg-black hover:text-white" data-accordion-close>CLOSE</button>
         </div>
 
+        <div class="amend-container" data-amend-container="codedworks"></div>
+
         <i class="lip-over" style="background:#e8febf"></i>
       </div>
     </div>
@@ -503,34 +542,41 @@
 
 <script>
   (function () {
-  const root = document.querySelector('[data-accordion-root]');
-  if (!root) return;
+    const root = document.querySelector('[data-accordion-root]');
+    if (!root) return;
 
-  const sections = [...root.querySelectorAll('[data-accordion]')];
+    const sections = [...root.querySelectorAll('[data-accordion]')];
 
-  function closeOthers(exceptPanel) {
-    sections.forEach(sec => {
-      sec.classList.remove('amend-y');
-    });
+    function closeOthers(exceptPanel) {
+      sections.forEach(sec => {
+        sec.classList.remove('amend-y');
+      });
 
-    sections.forEach(sec => {
-      const btn = sec.querySelector('[data-accordion-toggle]');
-      const panel = sec.querySelector('.accordion-panel');
-      if (panel !== exceptPanel) {
-        panel.style.maxHeight = '0px'; // 关闭所有其他面板
-        btn?.setAttribute('aria-expanded', 'false');
-      }
-    });
-  }
+      sections.forEach(sec => {
+        const btn = sec.querySelector('[data-accordion-toggle]');
+        const panel = sec.querySelector('.accordion-panel');
+        if (panel !== exceptPanel) {
+          panel.style.maxHeight = '0px'; // 关闭所有其他面板
+          btn?.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
 
     function toggle(section) {
       const btn = section.querySelector('[data-accordion-toggle]');
       const panel = section.querySelector('.accordion-panel');
       const expanded = btn.getAttribute('aria-expanded') === 'true';
 
+      console.log('toggle.expanded =>', expanded, section)
+
       if (expanded) {
         panel.style.maxHeight = '0px'; // 关闭面板
         btn.setAttribute('aria-expanded', 'false');
+        // 隐藏对应的 view-more-container
+        const viewMoreContainer = document.querySelector(`.view-more-container[data-for-section="${section.id}"]`);
+        if (viewMoreContainer) {
+          viewMoreContainer.classList.remove('active');
+        }
         sections.forEach(sec => {
           sec.classList.remove('amend-y');
         });
@@ -565,6 +611,42 @@
         amendSectionY(section);
         // 展开时取消文字限制，显示全部内容
         truncateText();
+        // 隐藏所有 view-more-container
+        document.querySelectorAll('.view-more-container').forEach(container => {
+          container.classList.remove('active');
+        });
+
+        // 等待面板展开动画完成后再显示对应的 view-more-container
+        let expandTimeoutId = null;
+        let expandIsHandled = false;
+
+        const handleExpandTransitionEnd = (e) => {
+          if (e.target === panel && e.propertyName === 'max-height' && !expandIsHandled) {
+            expandIsHandled = true;
+            // 显示对应的 view-more-container
+            const viewMoreContainer = document.querySelector(`.view-more-container[data-for-section="${section.id}"]`);
+            if (viewMoreContainer) {
+              viewMoreContainer.classList.add('active');
+            }
+            panel.removeEventListener('transitionend', handleExpandTransitionEnd);
+            if (expandTimeoutId) {
+              clearTimeout(expandTimeoutId);
+            }
+          }
+        };
+
+        panel.addEventListener('transitionend', handleExpandTransitionEnd);
+        // 如果动画没有触发，设置一个备用延迟
+        expandTimeoutId = setTimeout(() => {
+          if (panel.style.maxHeight !== '0px' && !expandIsHandled) {
+            expandIsHandled = true;
+            const viewMoreContainer = document.querySelector(`.view-more-container[data-for-section="${section.id}"]`);
+            if (viewMoreContainer) {
+              viewMoreContainer.classList.add('active');
+            }
+            panel.removeEventListener('transitionend', handleExpandTransitionEnd);
+          }
+        }, 600); // 500ms 动画 + 100ms 缓冲
 
         const fix = () => {
           panel.style.maxHeight = panel.scrollHeight + 'px';
@@ -576,21 +658,76 @@
     }
 
     function amendSectionY(section, remove = false) {
-    const currentIndex = sections.indexOf(section);
+      const currentIndex = sections.indexOf(section);
 
-    if (currentIndex === sections.length - 1) {
-      return; // 如果是最后一个部分，则跳过
-    }
+      if (currentIndex === sections.length - 1) {
+        return; // 如果是最后一个部分，则跳过
+      }
 
-    for (let i = currentIndex + 1; i < sections.length; i++) {
-      const laterSection = sections[i];
-      if (remove) {
-        laterSection.classList.remove('amend-y');
-      } else {
-        laterSection.classList.add('amend-y');
+      for (let i = currentIndex + 1; i < sections.length; i++) {
+        const laterSection = sections[i];
+        if (remove) {
+          laterSection.classList.remove('amend-y');
+        } else {
+          laterSection.classList.add('amend-y');
+        }
       }
     }
-  }
+
+    // 公共函数：关闭面板并处理相关逻辑
+    function closePanel(section, e) {
+      // 如果是 view-more-container 中的按钮，阻止默认行为和冒泡
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+
+      sections.forEach(sec => {
+        sec.classList.remove('amend-y');
+      });
+
+      console.log('close.panel =>', e)
+
+      const panel = section.querySelector('.accordion-panel');
+      const btn = section.querySelector('[data-accordion-toggle]');
+      if (!panel || !btn) return;
+
+      panel.style.maxHeight = '0px'; // 关闭面板
+      btn.setAttribute('aria-expanded', 'false');
+
+      // 隐藏对应的 view-more-container
+      const viewMoreContainer = document.querySelector(`.view-more-container[data-for-section="${section.id}"]`);
+      if (viewMoreContainer) {
+        viewMoreContainer.classList.remove('active');
+      }
+
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // 等待面板收起动画完成后再应用文字限制
+      let timeoutId = null;
+      let isHandled = false;
+
+      const handleTransitionEnd = (e) => {
+        if (e.target === panel && e.propertyName === 'max-height' && !isHandled) {
+          isHandled = true;
+          truncateText(); // 动画完成后再应用文字限制
+          panel.removeEventListener('transitionend', handleTransitionEnd);
+          if (timeoutId) {
+            clearTimeout(timeoutId);
+          }
+        }
+      };
+
+      panel.addEventListener('transitionend', handleTransitionEnd);
+      // 如果动画没有触发，设置一个备用延迟
+      timeoutId = setTimeout(() => {
+        if (panel.style.maxHeight === '0px' && !isHandled) {
+          isHandled = true;
+          truncateText();
+          panel.removeEventListener('transitionend', handleTransitionEnd);
+        }
+      }, 600); // 500ms 动画 + 100ms 缓冲
+    }
 
     sections.forEach(section => {
       const toggleBtn = section.querySelector('[data-accordion-toggle]');
@@ -601,58 +738,41 @@
         toggle(section); // 切换当前面板
       });
 
-      const closeBtn = section.querySelector('[data-accordion-close]');
+      // 处理 view-more-container 中的 CLOSE 按钮
+      const viewMoreCloseBtns = document.querySelectorAll(`[data-accordion-close][data-close-section="${section.id}"]`);
+      viewMoreCloseBtns.forEach(closeBtn => {
+        closeBtn.addEventListener('click', (e) => {
+          closePanel(section, e);
+        });
+      });
+
+      // 处理展开面板内的 CLOSE 按钮（没有 data-close-section 属性的）
+      const closeBtn = section.querySelector('.accordion-panel [data-accordion-close]:not([data-close-section])');
       if (closeBtn) {
         closeBtn.addEventListener('click', () => {
-          const panel = section.querySelector('.accordion-panel');
-          panel.style.maxHeight = '0px'; // 关闭面板
-          toggleBtn.setAttribute('aria-expanded', 'false');
-          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          // 等待面板收起动画完成后再应用文字限制
-          let timeoutId = null;
-          let isHandled = false;
-
-          const handleTransitionEnd = (e) => {
-            if (e.target === panel && e.propertyName === 'max-height' && !isHandled) {
-              isHandled = true;
-              truncateText(); // 动画完成后再应用文字限制
-              panel.removeEventListener('transitionend', handleTransitionEnd);
-              if (timeoutId) {
-                clearTimeout(timeoutId); // 清除备用延迟，避免重复执行
-              }
-            }
-          };
-          panel.addEventListener('transitionend', handleTransitionEnd);
-          // 如果动画没有触发，设置一个备用延迟
-          timeoutId = setTimeout(() => {
-            if (panel.style.maxHeight === '0px' && !isHandled) {
-              isHandled = true;
-              truncateText();
-              panel.removeEventListener('transitionend', handleTransitionEnd);
-            }
-          }, 600); // 500ms 动画 + 100ms 缓冲
+          closePanel(section);
         });
       }
     })
 
-  // 处理 VIEW MORE 链接
-  const viewMoreLinks = document.querySelectorAll('.mt-2 a');
-  viewMoreLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      const panels = document.querySelectorAll('.accordion-panel');
-      panels.forEach(panel => {
-        panel.style.maxHeight = null; // 清除面板的展开状态
+    // 处理 VIEW MORE 链接
+    const viewMoreLinks = document.querySelectorAll('.mt-2 a');
+    viewMoreLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        const panels = document.querySelectorAll('.accordion-panel');
+        panels.forEach(panel => {
+          panel.style.maxHeight = null; // 清除面板的展开状态
+        });
+        // 不需要额外操作，链接会自动跳转
       });
-      // 不需要额外操作，链接会自动跳转
     });
-  });
 
-  // 支持通过 hash 直接展开
-  const hash = location.hash?.replace('#', '');
-  if (hash) {
-    const target = root.querySelector('#' + hash)?.closest('[data-accordion]');
-    if (target) setTimeout(() => toggle(target), 200);
-  }
+    // 支持通过 hash 直接展开
+    const hash = location.hash?.replace('#', '');
+    if (hash) {
+      const target = root.querySelector('#' + hash)?.closest('[data-accordion]');
+      if (target) setTimeout(() => toggle(target), 200);
+    }
 
     // 动态设置移动端文件夹重叠的 margin-top
     // ========== 可配置变量 ==========
@@ -710,6 +830,164 @@
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(setMobileGapFix, 150);
+    });
+
+    // ========== view-more-container 位置补偿配置 ==========
+    const VIEW_MORE_POSITION_CONFIG = {
+      baseWidth: 1920, // 基准宽度（px）
+      baseLeft: 56, // 基准 left 值（3.5rem = 56px）
+      baseTop: 3, // 基准 top 偏移（translateY 3px）
+      // 补偿因子：每减少1px宽度，left和top的补偿量
+      leftCompensationFactor: 0.006, // 向右偏移补偿因子（较小）
+      topCompensationFactor: 0.06, // 向下偏移补偿因子（较大）
+    };
+
+    // 动态调整 view-more-container 的位置
+    function adjustViewMorePosition() {
+      const width = window.innerWidth;
+      const containers = document.querySelectorAll('.view-more-container');
+
+      containers.forEach(container => {
+        // 计算宽度差值（相对于1920px）
+        const widthDiff = VIEW_MORE_POSITION_CONFIG.baseWidth - width;
+
+        // 只在宽度小于基准宽度时应用补偿
+        if (widthDiff > 0) {
+          // 计算补偿值
+          const leftCompensation = widthDiff * VIEW_MORE_POSITION_CONFIG.leftCompensationFactor;
+          const topCompensation = widthDiff * VIEW_MORE_POSITION_CONFIG.topCompensationFactor;
+
+          // 打印补偿日志
+          console.log('[Position Compensation]', {
+            translateX: -leftCompensation.toFixed(2),
+            translateY: (VIEW_MORE_POSITION_CONFIG.baseTop - topCompensation).toFixed(2),
+            currentWidth: width,
+            widthDiff: widthDiff,
+            leftCompensation: leftCompensation.toFixed(2),
+            topCompensation: topCompensation.toFixed(2),
+            section: container.getAttribute('data-for-section')
+          });
+
+          // 应用补偿：通过 translateX 向右偏移，通过 translateY 向上偏移
+          container.style.transform = `translate(${-leftCompensation}px, ${VIEW_MORE_POSITION_CONFIG.baseTop - topCompensation}px)`;
+        } else {
+          // 宽度大于等于基准宽度时，使用基准值
+          console.log('[Position Compensation]', {
+            translateX: 0,
+            translateY: VIEW_MORE_POSITION_CONFIG.baseTop,
+            currentWidth: width,
+            widthDiff: widthDiff,
+            status: 'No compensation needed (width >= baseWidth)',
+            section: container.getAttribute('data-for-section')
+          });
+          container.style.transform = `translate(0px, ${VIEW_MORE_POSITION_CONFIG.baseTop}px)`;
+        }
+      });
+    }
+
+    // 初始化位置
+    adjustViewMorePosition();
+
+    // 窗口大小变化时更新位置
+    let viewMoreResizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(viewMoreResizeTimer);
+      viewMoreResizeTimer = setTimeout(adjustViewMorePosition, 150);
+    });
+
+    // ========== amend-container padding 动态调整配置 ==========
+    const AMEND_CONTAINER_CONFIG = {
+      // 每个容器的调整因子配置
+      containers: {
+        featured: {
+          adjustmentFactor: 1.0, // featured 的调整因子
+        },
+        deafart: {
+          adjustmentFactor: 0.6, // deafart 的调整因子
+        },
+        codedworks: {
+          adjustmentFactor: 0.5, // codedworks 的调整因子
+        }
+      },
+      // 宽度断点和对应的基础 padding 值
+      breakpoints: [
+        { width: 600, padding: 10 },
+        { width: 460, padding: 20 },
+        { width: 430, padding: 40 },
+        { width: 390, padding: 60 },
+        { width: 380, padding: 70 },
+        { width: 360, padding: 100 },
+      ]
+    };
+
+    // 动态调整 amend-container 的 padding
+    function adjustAmendContainerPadding() {
+      const width = window.innerWidth;
+      const containers = document.querySelectorAll('.amend-container[data-amend-container]');
+
+      containers.forEach(container => {
+        const containerId = container.getAttribute('data-amend-container');
+        const config = AMEND_CONTAINER_CONFIG.containers[containerId];
+
+        if (!config) return;
+
+        // 根据宽度线性计算基础 padding 值
+        let basePadding = 0;
+        const breakpoints = AMEND_CONTAINER_CONFIG.breakpoints;
+
+        // 如果宽度大于最大断点，padding = 0
+        if (width > breakpoints[0].width) {
+          basePadding = 0;
+        }
+        // 如果宽度小于等于最小断点，使用最小断点的 padding
+        else if (width <= breakpoints[breakpoints.length - 1].width) {
+          basePadding = breakpoints[breakpoints.length - 1].padding;
+        }
+        // 在断点之间进行线性插值
+        else {
+          // 找到当前宽度所在的两个断点区间
+          for (let i = 0; i < breakpoints.length - 1; i++) {
+            const upperBreakpoint = breakpoints[i];     // 上边界（宽度更大）
+            const lowerBreakpoint = breakpoints[i + 1]; // 下边界（宽度更小）
+
+            // 如果当前宽度在这个区间内
+            if (width <= upperBreakpoint.width && width > lowerBreakpoint.width) {
+              // 计算插值比例
+              const widthRange = upperBreakpoint.width - lowerBreakpoint.width;
+              const paddingRange = lowerBreakpoint.padding - upperBreakpoint.padding;
+              const progress = (upperBreakpoint.width - width) / widthRange;
+
+              // 线性插值计算 padding
+              basePadding = upperBreakpoint.padding + progress * paddingRange;
+              break;
+            }
+          }
+        }
+
+        // 应用调整因子
+        const adjustedPadding = basePadding * config.adjustmentFactor;
+
+        // 打印日志
+        console.log('[Amend Container Padding]', {
+          container: containerId,
+          currentWidth: width,
+          basePadding: basePadding.toFixed(2),
+          adjustmentFactor: config.adjustmentFactor,
+          adjustedPadding: adjustedPadding.toFixed(2)
+        });
+
+        // 应用 padding
+        container.style.padding = `${adjustedPadding}px`;
+      });
+    }
+
+    // 初始化 padding
+    window.addEventListener('load', adjustAmendContainerPadding);
+    // 窗口大小变化时更新 padding
+    let amendResizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(amendResizeTimer);
+      amendResizeTimer = setTimeout(adjustAmendContainerPadding, 10);
     });
 
     function truncateText() {
@@ -808,7 +1086,7 @@
             requestAnimationFrame(() => {
               const originalText = p.getAttribute('data-original-text') || p.textContent;
               const containerHeight = container.offsetHeight || container.getBoundingClientRect().height || container.clientHeight;
-              
+
               if (!containerHeight || containerHeight <= 0) {
                 return;
               }
@@ -817,13 +1095,13 @@
               p.textContent = originalText;
               p.style.height = 'auto';
               p.style.overflow = 'visible';
-              
+
               // 强制重排
               void p.offsetHeight;
-              
+
               const computedStyle = window.getComputedStyle(p);
               let lineHeight = parseFloat(computedStyle.lineHeight);
-              
+
               // 如果 lineHeight 无效，通过测量单行来计算
               if (!lineHeight || isNaN(lineHeight) || lineHeight <= 0) {
                 const temp = document.createElement('span');
@@ -845,23 +1123,23 @@
                 // 计算最大行数（保守计算，减去缓冲）
                 const buffer = lineHeight * 0.3;
                 const maxLines = Math.max(1, Math.floor((containerHeight - buffer) / lineHeight));
-                
+
                 // 使用二分查找找到合适的文本长度
                 let left = 0;
                 let right = originalText.length;
                 let bestLength = 0;
-                
+
                 while (left <= right) {
                   const mid = Math.floor((left + right) / 2);
                   const testText = originalText.substring(0, mid) + (mid < originalText.length ? '...' : '');
-                  
+
                   p.textContent = testText;
                   p.style.height = 'auto';
                   void p.offsetHeight; // 强制重排
-                  
+
                   const pHeight = p.getBoundingClientRect().height || p.offsetHeight;
                   const actualLines = Math.ceil(pHeight / lineHeight);
-                  
+
                   if (actualLines <= maxLines && mid < originalText.length) {
                     bestLength = mid;
                     left = mid + 1;
@@ -869,14 +1147,14 @@
                     right = mid - 1;
                   }
                 }
-                
+
                 // 应用截断后的文本
                 if (bestLength > 0 && bestLength < originalText.length) {
                   p.textContent = originalText.substring(0, bestLength) + '...';
                 } else {
                   p.textContent = originalText;
                 }
-                
+
                 // 恢复样式限制
                 p.style.height = '100%';
                 p.style.overflow = 'hidden';
@@ -887,7 +1165,6 @@
       });
     }
 
-
     // 初始化 + 窗口变化时更新
     const initTruncate = () => {
       setTimeout(() => {
@@ -896,14 +1173,15 @@
         });
       }, 100);
     };
-    
-    window.onload = initTruncate;
+
+    window.addEventListener('load', initTruncate)
+
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', initTruncate);
     } else {
       initTruncate();
     }
-    
+
     let truncateResizeTimer;
     window.addEventListener('resize', () => {
       clearTimeout(truncateResizeTimer);

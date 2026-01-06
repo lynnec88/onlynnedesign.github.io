@@ -18,8 +18,17 @@
   <link rel="manifest" href="images/site.webmanifest" />
 
   <style>
+    html {
+      height: 100vh;
+      overflow-x: hidden;
+      overscroll-behavior-y: none;
+    }
     body {
       font-family: 'Playfair Display', serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      overscroll-behavior-y: none;
+      position: relative;
     }
     @keyframes marquee {
       0% { transform: translateX(100%); }
@@ -33,6 +42,10 @@
     @media screen and (max-width: 767px) {
       header {
         border-bottom: none;
+      }
+      html, body {
+        overscroll-behavior-y: none;
+        -webkit-overflow-scrolling: touch;
       }
     }
   </style>
