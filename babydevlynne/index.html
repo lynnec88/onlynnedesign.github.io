@@ -58,34 +58,48 @@
     </div>
   </header>
 
-  <main class="h-screen flex px-6 gap-4">
-    <!-- 左边内容 -->
-    <div class="flex flex-col justify-center flex-1 text-center md:text-left pl-6 md:pl-24">
-      <h1 class="text-[10vw] font-display mb-4 leading-none">Hello,</h1>
-      <h2 class="text-[5vw] font-display text-gray-700 dark:text-gray-300 leading-tight break-words">
-        <span id="typewriter" class="typing inline-block"></span>
-      </h2>
-      <div class="flex gap-6 mt-8 justify-center md:justify-start">
-        <a href="projects.html"
-           class="px-6 py-3 border border-black text-white bg-black hover:bg-white hover:text-black 
-                  dark:bg-white dark:text-black dark:border-white dark:hover:bg-black dark:hover:text-white 
-                  transition font-semibold text-lg">
-          See Projects
-        </a>
-        <a href="about.html"
-           class="px-6 py-3 border border-black text-white bg-black hover:bg-white hover:text-black 
-                  dark:bg-white dark:text-black dark:border-white dark:hover:bg-black dark:hover:text-white 
-                  transition font-semibold text-lg">
-          About Me
-        </a>
-      </div>
+  <main class="flex flex-col md:flex-row px-6 gap-8 flex-1">
+
+  <!-- 左边内容 -->
+  <div class="flex flex-col justify-center flex-1 text-center md:text-left md:pl-24">
+    
+    <!-- 标题 -->
+    <h1 class="text-5xl md:text-[10vw] font-display mb-4 leading-none">
+      Hello,
+    </h1>
+
+    <!-- 打字效果 -->
+    <h2 class="text-2xl md:text-[5vw] font-display text-gray-700 dark:text-gray-300 leading-tight break-words">
+      <span id="typewriter" class="typing inline-block"></span>
+    </h2>
+
+    <!-- 按钮 -->
+    <div class="flex flex-col sm:flex-row gap-4 mt-8 justify-center md:justify-start">
+      <a href="projects.html"
+         class="px-6 py-3 border border-black text-white bg-black hover:bg-white hover:text-black 
+                dark:bg-white dark:text-black dark:border-white dark:hover:bg-black dark:hover:text-white 
+                transition font-semibold text-lg text-center">
+        See Projects
+      </a>
+
+      <a href="about.html"
+         class="px-6 py-3 border border-black text-white bg-black hover:bg-white hover:text-black 
+                dark:bg-white dark:text-black dark:border-white dark:hover:bg-black dark:hover:text-white 
+                transition font-semibold text-lg text-center">
+        About Me
+      </a>
     </div>
-  
-    <!-- 右边头像区域 -->
-    <div class="w-[40%] min-w-[240px] flex items-center justify-center h-full">
-        <img src="image/black white avatar.png" alt="Avatar" class="w-full h-full object-cover" />
-      </div>
-    </main>
+
+  </div>
+
+  <!-- 右边头像 -->
+  <div class="w-full md:w-[40%] flex items-center justify-center">
+    <img src="image/black white avatar.png"
+         alt="Avatar"
+         class="w-56 md:w-full h-auto object-cover rounded-xl" />
+  </div>
+
+</main>
   
   
   <!-- Footer -->
